@@ -1,0 +1,25 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="37" fill="#002868" />
+  <!-- House icon -->
+  <g transform="translate(18, 6) scale(2)">
+    <path
+      d="M28 8L6 26V48H20V36H36V48H50V26L28 8Z"
+      fill="none"
+      stroke="white"
+      stroke-width="3.5"
+      stroke-linejoin="round"
+      stroke-linecap="round"
+    />
+    <path
+      d="M28 40V22M22 28L28 22L34 28"
+      stroke="#BF0A30"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+  <!-- "US" text -->
+  <text x="118" y="78" font-family="Inter, system-ui, sans-serif" font-size="40" font-weight="800" fill="white" letter-spacing="-0.5">US</text>
+  <!-- "HELOC" text -->
+  <text x="24" y="158" font-family="Inter, system-ui, sans-serif" font-size="38" font-weight="800" fill="#BF0A30" letter-spacing="1">HELOC</text>
+</svg>
