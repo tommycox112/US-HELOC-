@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { Info, ArrowRight, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -125,19 +125,19 @@ export function SnapshotCard() {
               </Select>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              <div className="space-y-1.5">
+              <div className="min-w-0 space-y-1.5">
                 <Label className="text-xs font-medium text-gray-600">Occupancy</Label>
                 <Select value={occupancy} onValueChange={setOccupancy}>
-                  <SelectTrigger className="h-9"><SelectValue /></SelectTrigger>
+                  <SelectTrigger className="h-9 min-w-0 [&>span]:truncate"><SelectValue /></SelectTrigger>
                   <SelectContent>
                     {occupancies.map((o) => <SelectItem key={o} value={o}>{o}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-1.5">
+              <div className="min-w-0 space-y-1.5">
                 <Label className="text-xs font-medium text-gray-600">State</Label>
                 <Select value={state} onValueChange={setState}>
-                  <SelectTrigger className="h-9"><SelectValue /></SelectTrigger>
+                  <SelectTrigger className="h-9 min-w-0 [&>span]:truncate"><SelectValue /></SelectTrigger>
                   <SelectContent>
                     {Object.keys(siteConfig.stateAvailability.states).map((s) => (
                       <SelectItem key={s} value={s}>{s}</SelectItem>

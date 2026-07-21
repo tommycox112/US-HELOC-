@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "motion/react"
 import { Check } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { track } from "@/lib/site-config"
