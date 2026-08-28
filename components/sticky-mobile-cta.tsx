@@ -27,14 +27,14 @@ export function StickyMobileCTA() {
             <p className="text-[10px] text-gray-500 leading-none">
               Rates from
             </p>
-            <p className="text-lg font-bold text-[#002868]">
+            <p className="text-lg font-bold text-[#182C2A]">
               7.95%{" "}
               <span className="text-xs font-normal text-gray-500">APR</span>
             </p>
           </div>
 
           <div className="flex-1">
-            <Button asChild className="w-full bg-[#BF0A30] hover:bg-[#9a0827] text-white rounded-xl h-12 font-bold shadow-md text-sm">
+            <Button asChild className="w-full bg-[#28564A] hover:bg-[#9a0827] text-white rounded-xl h-12 font-bold shadow-md text-sm">
               <Link href="/apply">
                 Check Your Rate
                 <ArrowRight className="ml-1.5 h-4 w-4" />

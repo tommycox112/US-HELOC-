@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { ArrowRight, Home, DollarSign, TrendingUp, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Home, TrendingUp } from "lucide-react";
 
 function AnimatedNumber({ value, prefix = "", suffix = "" }: { value: number; prefix?: string; suffix?: string }) {
   const [displayValue, setDisplayValue] = useState(0);
@@ -13,7 +14,7 @@ function AnimatedNumber({ value, prefix = "", suffix = "" }: { value: number; pr
     const steps = 20;
     const stepValue = value / steps;
     let current = 0;
-    
+
     const timer = setInterval(() => {
       current += stepValue;
       if (current >= value) {
@@ -29,7 +30,9 @@ function AnimatedNumber({ value, prefix = "", suffix = "" }: { value: number; pr
 
   return (
     <span>
-      {prefix}{displayValue.toLocaleString()}{suffix}
+      {prefix}
+      {displayValue.toLocaleString()}
+      {suffix}
     </span>
   );
 }
@@ -37,14 +40,11 @@ function AnimatedNumber({ value, prefix = "", suffix = "" }: { value: number; pr
 export function HELOCCalculator() {
   const [homeValue, setHomeValue] = useState(500000);
   const [mortgageBalance, setMortgageBalance] = useState(300000);
-  const [creditScore, setCreditScore] = useState(720);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showResults, setShowResults] = useState(false);
 
   const equity = homeValue - mortgageBalance;
   const maxLine = Math.max(0, Math.floor((homeValue * 0.8 - mortgageBalance) / 1000) * 1000);
-  const estimatedRate = creditScore >= 740 ? 7.99 : creditScore >= 700 ? 8.49 : creditScore >= 660 ? 9.49 : 10.49;
-  const monthlyPayment = Math.round((maxLine * 0.5 * (estimatedRate / 100 / 12)));
 
   const handleCalculate = () => {
     setIsCalculating(true);
@@ -52,28 +52,28 @@ export function HELOCCalculator() {
     setTimeout(() => {
       setIsCalculating(false);
       setShowResults(true);
-    }, 1500);
+    }, 1200);
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+    <div className="overflow-hidden rounded-2xl border border-[#DFE6E2] bg-white shadow-[0_10px_40px_rgba(24,44,42,0.08)]">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#002868] to-[#001845] p-6 text-white">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-            <Home className="w-5 h-5" />
+      <div className="bg-gradient-to-r from-[#28564A] to-[#1F483F] p-6 text-white">
+        <div className="mb-2 flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15">
+            <Home className="h-5 w-5" />
           </div>
-          <h3 className="text-xl font-bold">HELOC Calculator</h3>
+          <h3 className="text-xl font-semibold">Equity Estimator</h3>
         </div>
-        <p className="text-white/70 text-sm">See how much you could borrow</p>
+        <p className="text-sm text-white/70">Estimate the equity you may be able to access</p>
       </div>
 
-      <div className="p-6 space-y-6">
+      <div className="space-y-6 p-6">
         {/* Home Value Slider */}
         <div className="space-y-3">
-          <div className="flex justify-between items-center">
-            <label className="text-sm font-medium text-gray-700">Home Value</label>
-            <span className="text-lg font-bold text-[#002868]">${homeValue.toLocaleString()}</span>
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-[#3E4A47]">Estimated Home Value</label>
+            <span className="text-lg font-bold text-[#28564A]">${homeValue.toLocaleString()}</span>
           </div>
           <Slider
             value={[homeValue]}
@@ -81,9 +81,9 @@ export function HELOCCalculator() {
             min={100000}
             max={2000000}
             step={10000}
-            className="[&_[role=slider]]:bg-[#BF0A30] [&_[role=slider]]:border-[#BF0A30] [&_.bg-primary]:bg-[#002868]"
+            className="[&_[data-slot=slider-range]]:bg-[#28564A] [&_[data-slot=slider-thumb]]:border-[#28564A]"
           />
-          <div className="flex justify-between text-xs text-gray-400">
+          <div className="flex justify-between text-xs text-[#8A7C6A]">
             <span>$100K</span>
             <span>$2M</span>
           </div>
@@ -91,9 +91,9 @@ export function HELOCCalculator() {
 
         {/* Mortgage Balance Slider */}
         <div className="space-y-3">
-          <div className="flex justify-between items-center">
-            <label className="text-sm font-medium text-gray-700">Mortgage Balance</label>
-            <span className="text-lg font-bold text-[#002868]">${mortgageBalance.toLocaleString()}</span>
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-[#3E4A47]">Mortgage Balance</label>
+            <span className="text-lg font-bold text-[#28564A]">${mortgageBalance.toLocaleString()}</span>
           </div>
           <Slider
             value={[mortgageBalance]}
@@ -101,43 +101,23 @@ export function HELOCCalculator() {
             min={0}
             max={homeValue * 0.9}
             step={5000}
-            className="[&_[role=slider]]:bg-[#BF0A30] [&_[role=slider]]:border-[#BF0A30] [&_.bg-primary]:bg-[#002868]"
+            className="[&_[data-slot=slider-range]]:bg-[#28564A] [&_[data-slot=slider-thumb]]:border-[#28564A]"
           />
-          <div className="flex justify-between text-xs text-gray-400">
+          <div className="flex justify-between text-xs text-[#8A7C6A]">
             <span>$0</span>
             <span>${(homeValue * 0.9).toLocaleString()}</span>
           </div>
         </div>
 
-        {/* Credit Score Slider */}
-        <div className="space-y-3">
-          <div className="flex justify-between items-center">
-            <label className="text-sm font-medium text-gray-700">Credit Score</label>
-            <span className="text-lg font-bold text-[#002868]">{creditScore}</span>
-          </div>
-          <Slider
-            value={[creditScore]}
-            onValueChange={(v) => setCreditScore(v[0])}
-            min={620}
-            max={850}
-            step={10}
-            className="[&_[role=slider]]:bg-[#BF0A30] [&_[role=slider]]:border-[#BF0A30] [&_.bg-primary]:bg-[#002868]"
-          />
-          <div className="flex justify-between text-xs text-gray-400">
-            <span>620</span>
-            <span>850</span>
-          </div>
-        </div>
-
         {/* Equity Display */}
-        <div className="bg-gradient-to-r from-blue-50 to-red-50 rounded-xl p-4 border border-gray-200">
+        <div className="rounded-xl border border-[#DFE6E2] bg-[#EEF2ED] p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Your Home Equity</p>
-              <p className="text-2xl font-bold text-[#002868]">${equity.toLocaleString()}</p>
+              <p className="text-sm text-[#52616B]">Your Estimated Home Equity</p>
+              <p className="text-2xl font-bold text-[#28564A]">${equity.toLocaleString()}</p>
             </div>
-            <div className="w-12 h-12 rounded-full bg-[#002868] flex items-center justify-center">
-              <TrendingUp className="w-6 h-6 text-white" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#28564A]">
+              <TrendingUp className="h-6 w-6 text-white" />
             </div>
           </div>
         </div>
@@ -146,16 +126,16 @@ export function HELOCCalculator() {
         <Button
           onClick={handleCalculate}
           disabled={isCalculating || maxLine <= 0}
-          className="w-full h-14 bg-[#BF0A30] hover:bg-[#8B0000] text-white rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
+          className="h-14 w-full rounded-full bg-[#28564A] text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#1F483F] hover:shadow-xl disabled:opacity-50"
         >
           {isCalculating ? (
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              Calculating...
+              <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+              Estimating...
             </div>
           ) : (
             <>
-              Calculate My HELOC
+              Estimate My Options
               <ArrowRight className="ml-2 h-5 w-5" />
             </>
           )}
@@ -163,47 +143,37 @@ export function HELOCCalculator() {
 
         {/* Results */}
         {showResults && maxLine > 0 && (
-          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
-            
-            <div className="text-center py-4">
-              <p className="text-sm text-gray-600 mb-1">Your Estimated Credit Line</p>
-              <p className="text-4xl font-bold text-[#002868]">
+          <div className="animate-in fade-in slide-in-from-bottom-4 space-y-4 duration-500">
+            <div className="h-px bg-gradient-to-r from-transparent via-[#DFE6E2] to-transparent" />
+
+            <div className="py-4 text-center">
+              <p className="mb-1 text-sm text-[#52616B]">Estimated Amount You May Access</p>
+              <p className="text-4xl font-bold text-[#28564A]">
                 <AnimatedNumber value={maxLine} prefix="$" />
               </p>
+              <p className="mt-1 text-xs text-[#8A7C6A]">Illustrative estimate based on up to 80% combined loan-to-value</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gray-50 rounded-xl p-4 text-center">
-                <p className="text-xs text-gray-500 mb-1">Est. APR</p>
-                <p className="text-xl font-bold text-[#002868]">{estimatedRate}%</p>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-4 text-center">
-                <p className="text-xs text-gray-500 mb-1">Monthly Payment*</p>
-                <p className="text-xl font-bold text-[#002868]">${monthlyPayment.toLocaleString()}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 text-green-600 justify-center">
-              <CheckCircle2 className="w-5 h-5" />
-              <span className="font-medium">You likely qualify!</span>
-            </div>
-
-            <Button className="w-full h-12 bg-[#002868] hover:bg-[#001845] text-white rounded-full font-semibold">
-              Check Your Actual Rate
-              <ArrowRight className="ml-2 h-4 w-4" />
+            <Button
+              asChild
+              className="h-12 w-full rounded-full bg-[#28564A] font-semibold text-white hover:bg-[#1F483F]"
+            >
+              <Link href="/apply">
+                Explore My Options
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
 
-            <p className="text-xs text-gray-400 text-center">
-              *Interest-only payment on 50% of line. Rates vary based on creditworthiness.
+            <p className="text-center text-xs text-[#8A7C6A]">
+              This is an estimate for informational purposes only, not an offer of credit, a rate quote, or a commitment to lend. Actual availability, amounts, and terms depend on eligibility, underwriting, and verification.
             </p>
           </div>
         )}
 
         {showResults && maxLine <= 0 && (
-          <div className="text-center py-4 text-gray-500">
-            <p>Based on your inputs, you may not have enough equity for a HELOC.</p>
-            <p className="text-sm mt-2">Try adjusting your home value or mortgage balance.</p>
+          <div className="py-4 text-center text-[#52616B]">
+            <p>Based on these inputs, there may not be enough equity to access at this time.</p>
+            <p className="mt-2 text-sm">Try adjusting the estimated home value or mortgage balance.</p>
           </div>
         )}
       </div>

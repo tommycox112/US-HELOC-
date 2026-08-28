@@ -1,16 +1,17 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Inter, Geist_Mono } from 'next/font/google'
+import { Inter, Geist_Mono, Instrument_Serif } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import './globals.css'
 
 const _inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: '400', style: ['normal', 'italic'], variable: '--font-instrument-serif' });
 
 export const metadata: Metadata = {
-  title: 'US HELOC - #1 Online Home Equity Line of Credit',
-  description: 'Access your home equity in as few as 5 days. 100% online application. Competitive rates. Borrow up to $750,000. The fastest, easiest way to unlock your home equity.',
+  title: 'Business-Purpose HELOC Options | USHELOC',
+  description: 'Explore home equity financing for small business needs, including equipment, inventory, payroll, and expansion. Learn about business-purpose HELOC options.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -29,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${_inter.variable} ${_instrumentSerif.variable}`}>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-QJCEJS5Y49"

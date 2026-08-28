@@ -1,130 +1,222 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ArrowRight, Clock, Phone } from "lucide-react";
-import { Logo } from "@/components/logo";
+import Link from "next/link"
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Menu, ArrowRight, ChevronDown, ShieldCheck, Lock } from "lucide-react"
+import { Logo } from "@/components/logo"
+import { siteConfig, show } from "@/lib/site-config"
+import { cn } from "@/lib/utils"
 
-const navItems = [
-  { name: "HELOC", href: "/heloc" },
-  { name: "Cash-Out Refi", href: "/cash-out-refinance" },
-  { name: "DSCR Loans", href: "/dscr-loan" },
-];
+const navGroups = [
+  {
+    name: "Home Equity",
+    items: [
+      { name: "HELOC", href: "/heloc", desc: "Flexible revolving credit line" },
+      { name: "Home Equity Loan", href: "/heloc", desc: "Fixed lump-sum second mortgage" },
+      { name: "Cash-Out Refinance", href: "/cash-out-refinance", desc: "Replace your mortgage, access equity" },
+      { name: "Compare Options", href: "/heloc#compare", desc: "See which structure fits" },
+    ],
+  },
+  {
+    name: "Investment Property",
+    items: [{ name: "DSCR Loans", href: "/dscr-loan", desc: "Qualify on property cash flow" }],
+  },
+]
+
+const simpleLinks = [
+  { name: "Calculators", href: "/cash-out-refinance#calculator" },
+  { name: "Resources", href: "/disclosures" },
+  { name: "About", href: "/about" },
+]
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const applyUrl = siteConfig.links.apply
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   return (
     <>
-      {/* Top Announcement Bar with American stripe effect */}
-      <div className="relative bg-[#002868] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#BF0A30]/20 via-transparent to-[#BF0A30]/20 animate-pulse" />
-          <div className="container flex items-center justify-between py-2.5 text-sm relative z-10">
+      {/* Announcement bar — compliant language */}
+      <div className="relative overflow-hidden border-b border-[#26463E] bg-[#182C2A] text-white">
+        <div className="container flex items-center justify-between py-2 text-xs">
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5 bg-white/20 px-2.5 py-1 rounded-full backdrop-blur-sm">
-              <Clock className="h-3.5 w-3.5 text-white" />
-              <span className="font-bold text-white text-xs">5 MIN</span>
-            </div>
-            <span className="font-medium text-white/90">Online Pre-Qualification</span>
-            <span className="hidden sm:inline text-white/40">|</span>
-            <span className="hidden sm:inline text-white/70 text-xs">No Hidden Fees</span>
+            <span className="hidden font-medium text-white/90 sm:inline">
+              Explore potential home-equity options through a streamlined online process.
+            </span>
+            <span className="font-medium text-white/90 sm:hidden">
+              Explore home-equity options online.
+            </span>
           </div>
-          <div className="hidden md:flex items-center gap-2">
-            <Phone className="h-3.5 w-3.5 text-white" />
-            <span className="font-semibold text-sm">support@usheloc.com</span>
+          <div className="flex items-center gap-3 text-white/70">
+            <span className="hidden items-center gap-1 md:flex">
+              <Lock className="h-3 w-3" /> Secure
+            </span>
+            <span className="hidden text-white/30 md:inline">|</span>
+            <span className="hidden md:inline">No obligation</span>
+            <span className="hidden text-white/30 lg:inline">|</span>
+            <span className="hidden lg:inline">Subject to underwriting</span>
           </div>
         </div>
-        {/* American stripe accents */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#BF0A30]" />
       </div>
-      
-      <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
+
+      <header
+        className={cn(
+          "sticky top-0 z-50 w-full transition-all duration-300",
+          scrolled
+            ? "border-b border-[#DFE6E2] bg-[#F6F3EC]/95 shadow-sm backdrop-blur-md"
+            : "border-b border-[#DFE6E2] bg-[#F6F3EC]",
+        )}
+      >
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center group relative">
-            <div className="relative overflow-hidden">
-              <Logo className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-            </div>
+          <Link href="/" className="group flex items-center">
+            <Logo className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
+          {/* Desktop nav with dropdowns */}
+          <nav className="hidden items-center gap-1 lg:flex">
+            {navGroups.map((group) => (
+              <div key={group.name} className="group relative">
+                <button className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-[#182C2A] transition-colors hover:text-[#28564A]">
+                  {group.name}
+                  <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
+                </button>
+                <div className="invisible absolute left-0 top-full w-72 translate-y-1 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="mt-1 overflow-hidden rounded-2xl border border-gray-200 bg-white p-2 shadow-xl">
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.name + item.href}
+                        href={item.href}
+                        className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-[#EEF2ED]"
+                      >
+                        <span className="block text-sm font-semibold text-[#182C2A]">{item.name}</span>
+                        <span className="block text-xs text-gray-500">{item.desc}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+            {simpleLinks.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative text-sm font-semibold text-[#002868] hover:text-[#BF0A30] transition-colors group"
+                className="rounded-md px-3 py-2 text-sm font-semibold text-[#182C2A] transition-colors hover:text-[#28564A]"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#BF0A30] group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden items-center gap-3 md:flex">
             <Link
-              href="#"
-              className="text-sm font-semibold text-[#002868] hover:text-[#BF0A30] transition-colors"
+              href={siteConfig.links.signIn}
+              className="text-sm font-semibold text-[#182C2A] transition-colors hover:text-[#28564A]"
             >
               Sign In
             </Link>
-            <Button asChild className="bg-[#BF0A30] hover:bg-[#8B0000] text-white rounded-full px-6 h-10 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <Link href="/apply">
-                Check Your Rate
+            <Link
+              href="/about#contact"
+              className="hidden text-sm font-semibold text-[#182C2A] transition-colors hover:text-[#28564A] xl:inline"
+            >
+              Talk to a Specialist
+            </Link>
+            <Button
+              asChild
+              className="h-10 rounded-full bg-[#28564A] px-6 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#1F483F]"
+            >
+              <Link href={applyUrl}>
+                Explore My Options
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className="text-[#002868]">
+              <Button variant="ghost" size="icon" className="text-[#182C2A]">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full bg-white">
-              <div className="flex items-center gap-2 pb-6 mb-6 border-b border-gray-200">
+            <SheetContent side="right" className="flex w-full flex-col bg-white p-0">
+              <div className="flex items-center gap-2 border-b border-gray-200 p-5">
                 <Logo className="h-8 w-auto" />
               </div>
-              
-              <nav className="flex flex-col gap-2">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between py-3 px-4 rounded-lg text-base font-semibold text-[#002868] hover:bg-blue-50 transition-colors"
-                  >
-                    {item.name}
-                    <ArrowRight className="h-4 w-4 text-[#BF0A30]" />
-                  </Link>
+
+              <nav className="flex-1 overflow-y-auto p-4">
+                {navGroups.map((group) => (
+                  <div key={group.name} className="mb-4">
+                    <p className="mb-1 px-3 text-xs font-bold uppercase tracking-wider text-[#28564A]">
+                      {group.name}
+                    </p>
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.name + item.href}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-semibold text-[#182C2A] transition-colors hover:bg-[#EEF2ED]"
+                      >
+                        {item.name}
+                        <ArrowRight className="h-4 w-4 text-[#28564A]" />
+                      </Link>
+                    ))}
+                  </div>
                 ))}
-                
-                <div className="flex flex-col gap-3 mt-6 pt-6 border-t border-gray-200">
-                  <Button variant="outline" className="rounded-full w-full h-12 font-semibold border-[#002868] text-[#002868] bg-transparent hover:bg-blue-50">
-                    Sign In
-                  </Button>
-                  <Button asChild className="rounded-full w-full h-12 bg-[#BF0A30] hover:bg-[#8B0000] text-white font-semibold" onClick={() => setIsOpen(false)}>
-                    <Link href="/apply">
-                      Check Your Rate
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                <div className="mb-4">
+                  {simpleLinks.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-semibold text-[#182C2A] transition-colors hover:bg-[#EEF2ED]"
+                    >
+                      {item.name}
+                      <ArrowRight className="h-4 w-4 text-[#28564A]" />
                     </Link>
-                  </Button>
-                </div>
-                
-                <div className="mt-8 p-4 bg-[#002868] rounded-lg text-white">
-                  <p className="text-sm text-white/70 mb-1">Questions?</p>
-                  <p className="text-lg font-bold">support@usheloc.com</p>
+                  ))}
                 </div>
               </nav>
+
+              <div className="space-y-3 border-t border-gray-200 p-4">
+                <Button
+                  asChild
+                  className="h-12 w-full rounded-full bg-[#28564A] font-semibold text-white hover:bg-[#1F483F]"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Link href={applyUrl}>
+                    Explore My Options
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-12 w-full rounded-full border-[#28564A] bg-transparent font-semibold text-[#28564A] hover:bg-[#EEF2ED]"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Link href="/about#contact">Talk to a Specialist</Link>
+                </Button>
+                {show(siteConfig.contact.email) && (
+                  <div className="flex items-center gap-2 rounded-lg bg-[#182C2A] p-3 text-white">
+                    <ShieldCheck className="h-4 w-4 text-white/70" />
+                    <span className="text-sm font-semibold">{show(siteConfig.contact.email)}</span>
+                  </div>
+                )}
+              </div>
             </SheetContent>
           </Sheet>
         </div>
       </header>
     </>
-  );
+  )
 }

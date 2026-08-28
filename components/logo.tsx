@@ -1,7 +1,7 @@
 export function Logo({ className = "", inverted = false }: { className?: string; inverted?: boolean }) {
-  const navyColor = inverted ? "#FFFFFF" : "#002868";
-  const redColor = "#BF0A30";
-  const whiteColor = inverted ? "#002868" : "#FFFFFF";
+  const navyColor = inverted ? "#FFFFFF" : "#182C2A";
+  const redColor = "#28564A";
+  const whiteColor = inverted ? "#182C2A" : "#F6F3EC";
 
   return (
     <svg
@@ -68,9 +68,9 @@ export function Logo({ className = "", inverted = false }: { className?: string;
 }
 
 export function LogoIcon({ className = "", inverted = false }: { className?: string; inverted?: boolean }) {
-  const navyColor = inverted ? "#FFFFFF" : "#002868";
-  const redColor = "#BF0A30";
-  const whiteColor = inverted ? "#002868" : "#FFFFFF";
+  const navyColor = inverted ? "#FFFFFF" : "#182C2A";
+  const redColor = "#28564A";
+  const whiteColor = inverted ? "#182C2A" : "#F6F3EC";
 
   return (
     <svg

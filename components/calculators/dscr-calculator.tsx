@@ -1,9 +1,21 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { ArrowRight, Building2, TrendingUp, CheckCircle2, XCircle, AlertCircle } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  TrendingUp,
+  CheckCircle2,
+  XCircle,
+  AlertCircle,
+  Home,
+  Building,
+  Warehouse,
+  Palmtree,
+} from "lucide-react";
 
 function AnimatedNumber({ value, decimals = 0, prefix = "", suffix = "" }: { value: number; decimals?: number; prefix?: string; suffix?: string }) {
   const [displayValue, setDisplayValue] = useState(0);
@@ -13,7 +25,7 @@ function AnimatedNumber({ value, decimals = 0, prefix = "", suffix = "" }: { val
     const steps = 20;
     const stepValue = value / steps;
     let current = 0;
-    
+
     const timer = setInterval(() => {
       current += stepValue;
       if (current >= value) {
@@ -29,16 +41,18 @@ function AnimatedNumber({ value, decimals = 0, prefix = "", suffix = "" }: { val
 
   return (
     <span>
-      {prefix}{decimals > 0 ? displayValue.toFixed(decimals) : Math.floor(displayValue).toLocaleString()}{suffix}
+      {prefix}
+      {decimals > 0 ? displayValue.toFixed(decimals) : Math.floor(displayValue).toLocaleString()}
+      {suffix}
     </span>
   );
 }
 
 const propertyTypes = [
-  { id: "sfr", label: "Single Family", icon: "🏠" },
-  { id: "multi", label: "2-4 Units", icon: "🏘️" },
-  { id: "condo", label: "Condo/Townhome", icon: "🏢" },
-  { id: "str", label: "Short-Term Rental", icon: "🏖️" },
+  { id: "sfr", label: "Single Family", icon: Home },
+  { id: "multi", label: "2-4 Units", icon: Building },
+  { id: "condo", label: "Condo/Townhome", icon: Warehouse },
+  { id: "str", label: "Short-Term Rental", icon: Palmtree },
 ];
 
 export function DSCRCalculator() {
@@ -50,18 +64,18 @@ export function DSCRCalculator() {
   const [showResults, setShowResults] = useState(false);
 
   const loanAmount = propertyValue * (1 - downPayment / 100);
-  const estimatedRate = 7.5;
-  const monthlyPI = Math.round(loanAmount * (estimatedRate / 100 / 12) / (1 - Math.pow(1 + estimatedRate / 100 / 12, -360)));
-  const estimatedTaxes = Math.round(propertyValue * 0.012 / 12);
-  const estimatedInsurance = Math.round(propertyValue * 0.004 / 12);
+  const illustrativeRate = 7.5;
+  const monthlyPI = Math.round(loanAmount * (illustrativeRate / 100 / 12) / (1 - Math.pow(1 + illustrativeRate / 100 / 12, -360)));
+  const estimatedTaxes = Math.round((propertyValue * 0.012) / 12);
+  const estimatedInsurance = Math.round((propertyValue * 0.004) / 12);
   const totalPITIA = monthlyPI + estimatedTaxes + estimatedInsurance;
   const dscr = totalPITIA > 0 ? monthlyRent / totalPITIA : 0;
 
   const getDSCRStatus = () => {
-    if (dscr >= 1.25) return { status: "excellent", color: "green", icon: CheckCircle2, text: "Excellent - Best rates available" };
-    if (dscr >= 1.0) return { status: "good", color: "blue", icon: CheckCircle2, text: "Good - You qualify" };
-    if (dscr >= 0.75) return { status: "fair", color: "yellow", icon: AlertCircle, text: "May qualify with conditions" };
-    return { status: "low", color: "red", icon: XCircle, text: "May not qualify - increase rent or down payment" };
+    if (dscr >= 1.25) return { status: "excellent", icon: CheckCircle2, text: "Strong coverage — typically the most favorable terms" };
+    if (dscr >= 1.0) return { status: "good", icon: CheckCircle2, text: "Income covers the payment based on these inputs" };
+    if (dscr >= 0.75) return { status: "fair", icon: AlertCircle, text: "May be workable with conditions" };
+    return { status: "low", icon: XCircle, text: "Coverage is low — consider higher rent or down payment" };
   };
 
   const handleCalculate = () => {
@@ -70,64 +84,57 @@ export function DSCRCalculator() {
     setTimeout(() => {
       setIsCalculating(false);
       setShowResults(true);
-    }, 1500);
+    }, 1200);
   };
 
   const dscrStatus = getDSCRStatus();
 
+  const statusText = (s: string) =>
+    s === "excellent" ? "text-[#28564A]" : s === "good" ? "text-[#3E7C63]" : s === "fair" ? "text-[#B8860B]" : "text-[#B0453B]";
+
   return (
-    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+    <div className="overflow-hidden rounded-2xl border border-[#DFE6E2] bg-white shadow-[0_10px_40px_rgba(24,44,42,0.08)]">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#002868] via-[#1a3a7a] to-[#002868] p-6 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          {[...Array(5)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white rounded-full animate-pulse"
-              style={{
-                left: `${20 + i * 15}%`,
-                top: `${30 + (i % 2) * 40}%`,
-                animationDelay: `${i * 0.2}s`,
-              }}
-            />
-          ))}
-        </div>
-        <div className="flex items-center gap-3 mb-2 relative z-10">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-            <Building2 className="w-5 h-5" />
+      <div className="bg-gradient-to-r from-[#28564A] to-[#1F483F] p-6 text-white">
+        <div className="mb-2 flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15">
+            <Building2 className="h-5 w-5" />
           </div>
-          <h3 className="text-xl font-bold">DSCR Loan Calculator</h3>
+          <h3 className="text-xl font-semibold">DSCR Estimator</h3>
         </div>
-        <p className="text-white/80 text-sm relative z-10">Calculate your debt service coverage ratio</p>
+        <p className="text-sm text-white/80">Estimate a property&apos;s debt service coverage ratio</p>
       </div>
 
-      <div className="p-6 space-y-6">
+      <div className="space-y-6 p-6">
         {/* Property Type */}
         <div className="space-y-3">
-          <label className="text-sm font-medium text-gray-700">Property Type</label>
+          <label className="text-sm font-medium text-[#3E4A47]">Property Type</label>
           <div className="grid grid-cols-2 gap-2">
-            {propertyTypes.map((type) => (
-              <button
-                key={type.id}
-                onClick={() => setPropertyType(type.id)}
-                className={`p-3 rounded-xl border-2 text-left transition-all duration-200 ${
-                  propertyType === type.id
-                    ? "border-[#002868] bg-blue-50 scale-[1.02]"
-                    : "border-gray-200 hover:border-gray-300"
-                }`}
-              >
-                <span className="text-lg mr-2">{type.icon}</span>
-                <span className="text-sm font-medium">{type.label}</span>
-              </button>
-            ))}
+            {propertyTypes.map((type) => {
+              const Icon = type.icon;
+              return (
+                <button
+                  key={type.id}
+                  onClick={() => setPropertyType(type.id)}
+                  className={`flex items-center gap-2 rounded-xl border-2 p-3 text-left transition-all duration-200 ${
+                    propertyType === type.id
+                      ? "border-[#28564A] bg-[#EEF2ED]"
+                      : "border-[#DFE6E2] hover:border-[#C4CEC8]"
+                  }`}
+                >
+                  <Icon className="h-4 w-4 shrink-0 text-[#28564A]" />
+                  <span className="text-sm font-medium text-[#182C2A]">{type.label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Property Value */}
         <div className="space-y-3">
-          <div className="flex justify-between items-center">
-            <label className="text-sm font-medium text-gray-700">Property Value</label>
-            <span className="text-lg font-bold text-[#002868]">${propertyValue.toLocaleString()}</span>
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-[#3E4A47]">Property Value</label>
+            <span className="text-lg font-bold text-[#28564A]">${propertyValue.toLocaleString()}</span>
           </div>
           <Slider
             value={[propertyValue]}
@@ -135,15 +142,17 @@ export function DSCRCalculator() {
             min={100000}
             max={3000000}
             step={10000}
-            className="[&_[role=slider]]:bg-[#002868] [&_[role=slider]]:border-[#002868] [&_.bg-primary]:bg-[#002868]"
+            className="[&_[data-slot=slider-range]]:bg-[#28564A] [&_[data-slot=slider-thumb]]:border-[#28564A]"
           />
         </div>
 
         {/* Down Payment */}
         <div className="space-y-3">
-          <div className="flex justify-between items-center">
-            <label className="text-sm font-medium text-gray-700">Down Payment</label>
-            <span className="text-lg font-bold text-[#002868]">{downPayment}% (${(propertyValue * downPayment / 100).toLocaleString()})</span>
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-[#3E4A47]">Down Payment</label>
+            <span className="text-lg font-bold text-[#28564A]">
+              {downPayment}% (${((propertyValue * downPayment) / 100).toLocaleString()})
+            </span>
           </div>
           <Slider
             value={[downPayment]}
@@ -151,9 +160,9 @@ export function DSCRCalculator() {
             min={15}
             max={50}
             step={5}
-            className="[&_[role=slider]]:bg-[#002868] [&_[role=slider]]:border-[#002868] [&_.bg-primary]:bg-[#002868]"
+            className="[&_[data-slot=slider-range]]:bg-[#28564A] [&_[data-slot=slider-thumb]]:border-[#28564A]"
           />
-          <div className="flex justify-between text-xs text-gray-400">
+          <div className="flex justify-between text-xs text-[#8A7C6A]">
             <span>15%</span>
             <span>50%</span>
           </div>
@@ -161,9 +170,9 @@ export function DSCRCalculator() {
 
         {/* Monthly Rent */}
         <div className="space-y-3">
-          <div className="flex justify-between items-center">
-            <label className="text-sm font-medium text-gray-700">Expected Monthly Rent</label>
-            <span className="text-lg font-bold text-[#BF0A30]">${monthlyRent.toLocaleString()}</span>
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-[#3E4A47]">Expected Monthly Rent</label>
+            <span className="text-lg font-bold text-[#28564A]">${monthlyRent.toLocaleString()}</span>
           </div>
           <Slider
             value={[monthlyRent]}
@@ -171,36 +180,28 @@ export function DSCRCalculator() {
             min={1000}
             max={15000}
             step={100}
-            className="[&_[role=slider]]:bg-[#BF0A30] [&_[role=slider]]:border-[#BF0A30] [&_.bg-primary]:bg-[#BF0A30]"
+            className="[&_[data-slot=slider-range]]:bg-[#28564A] [&_[data-slot=slider-thumb]]:border-[#28564A]"
           />
         </div>
 
         {/* Live DSCR Preview */}
-        <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-gray-200">
+        <div className="rounded-xl border border-[#DFE6E2] bg-[#EEF2ED] p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Current DSCR</p>
-              <p className={`text-3xl font-bold ${
-                dscr >= 1.25 ? "text-green-600" : dscr >= 1.0 ? "text-blue-600" : dscr >= 0.75 ? "text-yellow-600" : "text-red-600"
-              }`}>
-                {dscr.toFixed(2)}
-              </p>
+              <p className="text-sm text-[#52616B]">Current DSCR</p>
+              <p className={`text-3xl font-bold ${statusText(dscrStatus.status)}`}>{dscr.toFixed(2)}</p>
             </div>
-            <div className={`w-14 h-14 rounded-full flex items-center justify-center ${
-              dscr >= 1.0 ? "bg-green-100" : "bg-red-100"
-            }`}>
-              <TrendingUp className={`w-7 h-7 ${dscr >= 1.0 ? "text-green-600" : "text-red-600"}`} />
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white">
+              <TrendingUp className={`h-7 w-7 ${statusText(dscrStatus.status)}`} />
             </div>
           </div>
-          <div className="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div className="mt-3 h-2 overflow-hidden rounded-full bg-[#D8E0DA]">
             <div
-              className={`h-full transition-all duration-500 ${
-                dscr >= 1.25 ? "bg-green-500" : dscr >= 1.0 ? "bg-blue-500" : dscr >= 0.75 ? "bg-yellow-500" : "bg-red-500"
-              }`}
+              className="h-full bg-[#28564A] transition-all duration-500"
               style={{ width: `${Math.min(100, (dscr / 1.5) * 100)}%` }}
             />
           </div>
-          <div className="flex justify-between text-xs text-gray-400 mt-1">
+          <div className="mt-1 flex justify-between text-xs text-[#8A7C6A]">
             <span>0.75</span>
             <span>1.0</span>
             <span>1.25</span>
@@ -212,16 +213,16 @@ export function DSCRCalculator() {
         <Button
           onClick={handleCalculate}
           disabled={isCalculating}
-          className="w-full h-14 bg-[#BF0A30] hover:bg-[#8B0000] text-white rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          className="h-14 w-full rounded-full bg-[#28564A] text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#1F483F] hover:shadow-xl"
         >
           {isCalculating ? (
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
               Analyzing...
             </div>
           ) : (
             <>
-              Calculate DSCR Loan
+              Estimate DSCR
               <ArrowRight className="ml-2 h-5 w-5" />
             </>
           )}
@@ -229,54 +230,39 @@ export function DSCRCalculator() {
 
         {/* Results */}
         {showResults && (
-          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="h-px bg-gradient-to-r from-[#002868] via-white to-[#BF0A30]" />
+          <div className="animate-in fade-in slide-in-from-bottom-4 space-y-4 duration-500">
+            <div className="h-px bg-gradient-to-r from-transparent via-[#DFE6E2] to-transparent" />
 
             {/* DSCR Result */}
-            <div className={`rounded-xl p-6 text-center border-2 ${
-              dscrStatus.status === "excellent" ? "bg-green-50 border-green-200" :
-              dscrStatus.status === "good" ? "bg-blue-50 border-blue-200" :
-              dscrStatus.status === "fair" ? "bg-yellow-50 border-yellow-200" :
-              "bg-red-50 border-red-200"
-            }`}>
-              <p className="text-sm text-gray-600 mb-1">Your DSCR Ratio</p>
-              <p className={`text-5xl font-bold ${
-                dscrStatus.status === "excellent" ? "text-green-600" :
-                dscrStatus.status === "good" ? "text-blue-600" :
-                dscrStatus.status === "fair" ? "text-yellow-600" :
-                "text-red-600"
-              }`}>
+            <div className="rounded-xl border border-[#DFE6E2] bg-[#EEF2ED] p-6 text-center">
+              <p className="mb-1 text-sm text-[#52616B]">Estimated DSCR</p>
+              <p className={`text-5xl font-bold ${statusText(dscrStatus.status)}`}>
                 <AnimatedNumber value={dscr} decimals={2} />
               </p>
-              <div className={`flex items-center justify-center gap-2 mt-2 ${
-                dscrStatus.status === "excellent" ? "text-green-600" :
-                dscrStatus.status === "good" ? "text-blue-600" :
-                dscrStatus.status === "fair" ? "text-yellow-600" :
-                "text-red-600"
-              }`}>
-                <dscrStatus.icon className="w-5 h-5" />
+              <div className={`mt-2 flex items-center justify-center gap-2 ${statusText(dscrStatus.status)}`}>
+                <dscrStatus.icon className="h-5 w-5" />
                 <span className="font-medium">{dscrStatus.text}</span>
               </div>
             </div>
 
             {/* Loan Details */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-gray-50 rounded-xl p-4">
-                <p className="text-xs text-gray-500 mb-1">Loan Amount</p>
-                <p className="text-lg font-bold text-[#002868]">${loanAmount.toLocaleString()}</p>
+              <div className="rounded-xl bg-[#F6F3EC] p-4">
+                <p className="mb-1 text-xs text-[#52616B]">Est. Loan Amount</p>
+                <p className="text-lg font-bold text-[#28564A]">${loanAmount.toLocaleString()}</p>
               </div>
-              <div className="bg-gray-50 rounded-xl p-4">
-                <p className="text-xs text-gray-500 mb-1">Est. Rate</p>
-                <p className="text-lg font-bold text-[#002868]">{estimatedRate}%</p>
+              <div className="rounded-xl bg-[#F6F3EC] p-4">
+                <p className="mb-1 text-xs text-[#52616B]">Illustrative Rate</p>
+                <p className="text-lg font-bold text-[#28564A]">{illustrativeRate}%</p>
               </div>
             </div>
 
             {/* Payment Breakdown */}
-            <div className="bg-[#002868] rounded-xl p-4 text-white">
-              <p className="text-white/70 text-sm mb-3">Monthly Payment Breakdown (PITIA)</p>
+            <div className="rounded-xl bg-[#182C2A] p-4 text-white">
+              <p className="mb-3 text-sm text-white/70">Illustrative Monthly Payment (PITIA)</p>
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-white/70">Principal & Interest</span>
+                  <span className="text-white/70">Principal &amp; Interest</span>
                   <span>${monthlyPI.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between text-sm">
@@ -287,20 +273,29 @@ export function DSCRCalculator() {
                   <span className="text-white/70">Est. Insurance</span>
                   <span>${estimatedInsurance.toLocaleString()}</span>
                 </div>
-                <div className="h-px bg-white/20 my-2" />
-                <div className="flex justify-between font-bold text-lg">
+                <div className="my-2 h-px bg-white/20" />
+                <div className="flex justify-between text-lg font-bold">
                   <span>Total PITIA</span>
                   <span>${totalPITIA.toLocaleString()}</span>
                 </div>
               </div>
             </div>
 
-            {dscr >= 0.75 && (
-              <Button className="w-full h-12 bg-[#BF0A30] hover:bg-[#8B0000] text-white rounded-full font-semibold">
-                Get Pre-Qualified Now
+            <Button
+              asChild
+              className="h-12 w-full rounded-full bg-[#28564A] font-semibold text-white hover:bg-[#1F483F]"
+            >
+              <Link href="/apply">
+                Explore My Options
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            )}
+              </Link>
+            </Button>
+
+            <p className="text-center text-xs text-[#8A7C6A]">
+              Illustrative estimate for informational purposes only. Rate, taxes, and insurance are
+              assumptions, not quotes. Actual DSCR, terms, and eligibility are determined by
+              underwriting and verification.
+            </p>
           </div>
         )}
       </div>

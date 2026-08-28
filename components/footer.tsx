@@ -1,128 +1,174 @@
-import Link from "next/link";
-import { Phone, Mail, MapPin, CheckCircle2 } from "lucide-react";
-import { Logo } from "@/components/logo";
+import Link from "next/link"
+import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { Logo } from "@/components/logo"
+import { siteConfig, disclosures, show } from "@/lib/site-config"
 
 const footerLinks = {
   Products: [
-    { name: "Home Equity Line (HELOC)", href: "/heloc" },
+    { name: "HELOC", href: "/heloc" },
+    { name: "Home Equity Loan", href: "/heloc" },
     { name: "Cash-Out Refinance", href: "/cash-out-refinance" },
     { name: "DSCR Loans", href: "/dscr-loan" },
+    { name: "Compare Options", href: "/heloc#compare" },
+  ],
+  Calculators: [
+    { name: "Cash-Out Calculator", href: "/cash-out-refinance#calculator" },
+    { name: "HELOC Calculator", href: "/heloc#calculator" },
+    { name: "DSCR Calculator", href: "/dscr-loan#calculator" },
   ],
   Company: [
     { name: "About Us", href: "/about" },
+    { name: "Leadership", href: "/about#leadership" },
     { name: "Careers", href: "/about#careers" },
     { name: "Partners", href: "/about#partners" },
+    { name: "Contact", href: "/about#contact" },
   ],
-  Resources: [
-    { name: "Help Center", href: "/about#contact" },
-    { name: "FAQs", href: "/#faq" },
+  "Trust Center": [
+    { name: "Licensing & NMLS", href: "/licenses" },
     { name: "Disclosures", href: "/disclosures" },
-  ],
-  Legal: [
     { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Disclosures", href: "/disclosures" },
-    { name: "Licenses & NMLS", href: "/licenses" },
+    { name: "Terms of Use", href: "/terms" },
+    { name: "Accessibility", href: "/disclosures#accessibility" },
   ],
-};
-
-const certifications = [
-  "NMLS Licensed",
-  "256-bit SSL Secured",
-  "Equal Housing Lender",
-];
+}
 
 export function Footer() {
+  const legalEntity = show(siteConfig.brand.legalEntity)
+  const dba = show(siteConfig.brand.dba)
+  const businessModel = show(siteConfig.brand.businessModel)
+  const companyNmls = show(siteConfig.licensing.companyNmls)
+  const eho = show(siteConfig.licensing.equalHousingOpportunity)
+  const nmlsAccess = show(siteConfig.licensing.nmlsConsumerAccessUrl)
+  const email = show(siteConfig.contact.email)
+  const phone = show(siteConfig.contact.phone)
+  const hours = show(siteConfig.contact.businessHours)
+  const office = show(siteConfig.contact.primaryOffice)
+  const statesServed = Object.keys(siteConfig.stateAvailability.states).filter(
+    (s) => siteConfig.stateAvailability.states[s] !== "unavailable",
+  )
+
   return (
-    <footer className="bg-[#002868] relative overflow-hidden">
-      {/* Top accent line */}
-      <div className="h-0.5 bg-[#BF0A30]" />
-
-      <div className="container py-12 relative z-10">
-        {/* Top section */}
-        <div className="grid md:grid-cols-2 gap-8 pb-8 mb-8 border-b border-white/10">
-          <div>
-            <Link href="/" className="inline-block mb-4">
-              <Logo className="h-9 w-auto" inverted />
+    <footer className="border-t border-[#DFE6E2] bg-[#F6F3EC] text-[#52616B]">
+      <div className="container py-14">
+        <div className="grid gap-10 pb-10 md:grid-cols-2 lg:grid-cols-3">
+          {/* Brand + identity */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="mb-4 inline-block">
+              <Logo className="h-9 w-auto" />
             </Link>
-            <p className="text-white/60 max-w-md text-sm leading-relaxed mb-4">
-              A fast, easy way to access your home equity. Quick
-              pre-qualification, funding in as few as 5 days, 100% online.
+            <p className="mb-5 max-w-md text-pretty text-sm leading-relaxed text-[#52616B]">
+              {siteConfig.brand.name} helps homeowners and real-estate investors explore
+              home-equity financing options through a streamlined online process with human
+              guidance.
             </p>
-            <div className="flex flex-wrap gap-2">
-              {certifications.map((cert, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-1.5 px-2.5 py-1 bg-white/8 rounded-md"
+
+            <div className="space-y-2 rounded-xl border border-[#DFE6E2] bg-white p-4 text-sm">
+              {email && (
+                <a
+                  href={`mailto:${email}`}
+                  className="flex items-center gap-3 text-[#182C2A] transition-colors hover:text-[#28564A]"
                 >
-                  <CheckCircle2 className="h-3 w-3 text-green-400" />
-                  <span className="text-[11px] text-white/60">{cert}</span>
+                  <Mail className="h-4 w-4 text-[#28564A]" />
+                  <span>{email}</span>
+                </a>
+              )}
+              {phone && (
+                <a
+                  href={`tel:${phone}`}
+                  className="flex items-center gap-3 text-[#182C2A] transition-colors hover:text-[#28564A]"
+                >
+                  <Phone className="h-4 w-4 text-[#28564A]" />
+                  <span>{phone}</span>
+                </a>
+              )}
+              {hours && (
+                <div className="flex items-center gap-3 text-[#52616B]">
+                  <Clock className="h-4 w-4 text-[#28564A]" />
+                  <span>{hours}</span>
                 </div>
-              ))}
+              )}
+              {office && (
+                <div className="flex items-center gap-3 text-[#52616B]">
+                  <MapPin className="h-4 w-4 text-[#28564A]" />
+                  <span>{office}</span>
+                </div>
+              )}
             </div>
           </div>
 
-          <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-            <h3 className="text-xs font-semibold text-white/80 mb-3 uppercase tracking-wider">
-              Contact Us
-            </h3>
-            <div className="space-y-2.5 text-sm">
-              <a
-                href="tel:3322309248"
-                className="flex items-center gap-3 text-white hover:text-white/80 transition-colors"
-              >
-                <Phone className="h-4 w-4 text-[#BF0A30]" />
-                <span>(332) 230-9248</span>
-              </a>
-              <a
-                href="mailto:support@usheloc.com"
-                className="flex items-center gap-3 text-white hover:text-white/80 transition-colors"
-              >
-                <Mail className="h-4 w-4 text-[#BF0A30]" />
-                <span>support@usheloc.com</span>
-              </a>
-              <div className="flex items-center gap-3 text-white/70">
-                <MapPin className="h-4 w-4 text-[#BF0A30]" />
-                <span>Miami, FL &middot; New York, NY</span>
+          {/* Links */}
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-2">
+            {Object.entries(footerLinks).map(([category, links]) => (
+              <div key={category}>
+                <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#182C2A]">
+                  {category}
+                </h3>
+                <ul className="space-y-2">
+                  {links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-[#52616B] underline-offset-4 transition-colors hover:text-[#28564A] hover:underline"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Links grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h3 className="text-xs font-semibold text-white/80 mb-3 uppercase tracking-wider">
-                {category}
-              </h3>
-              <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/50 hover:text-white transition-colors underline-offset-4 hover:underline"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        {/* Legal identity band */}
+        <div className="space-y-3 border-t border-[#DFE6E2] pt-8 text-[11px] leading-relaxed text-[#8A7C6A]">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            {legalEntity && (
+              <span>
+                {siteConfig.brand.name} is a digital home-financing brand operated by{" "}
+                <span className="text-[#182C2A]">{legalEntity}</span>
+                {dba ? `, ${dba.toLowerCase()}` : ""}.
+              </span>
+            )}
+            {businessModel && (
+              <span className="text-[#52616B]">Operating as a {businessModel}.</span>
+            )}
+          </div>
 
-        {/* Bottom bar */}
-        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-white/40">
-          <p>
-            NMLS# 1660690. Equal Housing Lender. Licensed in all 50 states.
-          </p>
-          <p>
-            {new Date().getFullYear()} US HELOC. All rights reserved. Not a
-            lender.
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            {companyNmls && (
+              <span>
+                Company NMLS #{companyNmls}
+                {nmlsAccess && (
+                  <>
+                    {" "}
+                    &middot;{" "}
+                    <a
+                      href={nmlsAccess}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 hover:text-[#28564A]"
+                    >
+                      NMLS Consumer Access
+                    </a>
+                  </>
+                )}
+              </span>
+            )}
+            {eho && <span>Equal Housing Opportunity.</span>}
+            {statesServed.length > 0 && (
+              <span>Available in {statesServed.length} states (see State Availability).</span>
+            )}
+          </div>
+
+          <p className="max-w-4xl text-pretty">{disclosures.aboutGeneral}</p>
+          <p className="max-w-4xl text-pretty">{disclosures.cashOutFooter}</p>
+
+          <p className="pt-2 text-[#8A7C6A]">
+            &copy; {new Date().getFullYear()} {siteConfig.brand.name}. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
-  );
+  )
 }
