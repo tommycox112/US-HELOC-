@@ -55,8 +55,10 @@ function CashOutCalculator() {
   const [taxes, setTaxes] = useState(6000)
   const [insurance, setInsurance] = useState(1800)
   const [hoa, setHoa] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     track("cash_out_calculator_started")
   }, [])
 
@@ -130,13 +132,15 @@ function CashOutCalculator() {
       <div className="space-y-4">
         <div className="relative rounded-3xl border border-gray-200 bg-white p-5">
           <div className="mx-auto h-52 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie data={chartData} dataKey="value" innerRadius={58} outerRadius={82} paddingAngle={2} startAngle={90} endAngle={-270} isAnimationActive>
-                  {chartData.map((d) => <Cell key={d.name} fill={d.color} />)}
-                </Pie>
-              </PieChart>
-            </ResponsiveContainer>
+            {mounted && (
+              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+                <PieChart>
+                  <Pie data={chartData} dataKey="value" innerRadius={58} outerRadius={82} paddingAngle={2} startAngle={90} endAngle={-270} isAnimationActive>
+                    {chartData.map((d) => <Cell key={d.name} fill={d.color} />)}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            )}
             <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center pt-2">
               <span className="text-xs text-gray-500">Est. net proceeds</span>
               <span className="text-2xl font-bold text-[#182C2A]">{usd(c.netProceeds)}</span>
