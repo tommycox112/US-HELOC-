@@ -14,12 +14,8 @@ export const metadata: Metadata = {
   description: 'Explore home equity financing for small business needs, including equipment, inventory, payroll, and expansion. Learn about business-purpose HELOC options.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      { url: '/favicon-32x32.jpg', sizes: '32x32', type: 'image/jpeg' },
-      { url: '/favicon-16x16.jpg', sizes: '16x16', type: 'image/jpeg' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-touch-icon.jpg',
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    apple: '/apple-icon.svg',
   },
   manifest: '/site.webmanifest',
 }
