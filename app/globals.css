@@ -94,6 +94,7 @@
 
 @theme inline {
   --font-sans: 'Inter', 'Inter Fallback', sans-serif;
+  --font-serif: var(--font-instrument-serif), 'Instrument Serif', ui-serif, Georgia, serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -273,6 +274,17 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Offset anchored sections for the sticky header */
+[id] {
+  scroll-margin-top: 84px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Better focus states */
