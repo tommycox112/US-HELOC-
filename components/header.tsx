@@ -194,7 +194,7 @@ export function Header() {
                   onClick={() => setIsOpen(false)}
                 >
                   <Link href={applyUrl}>
-                    Check My Options
+                    Explore My Options
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

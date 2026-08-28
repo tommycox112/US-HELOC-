@@ -159,31 +159,31 @@ export function ApplicationForm() {
       <div className="py-16 md:py-24">
         <div className="container max-w-2xl">
           <Card className="border-0 shadow-2xl overflow-hidden">
-            <div className="h-2 bg-gradient-to-r from-[#002868] via-[#BF0A30] to-[#002868]" />
+            <div className="h-2 bg-gradient-to-r from-[#182C2A] via-[#28564A] to-[#182C2A]" />
             <CardContent className="p-8 md:p-12 text-center">
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle2 className="h-10 w-10 text-green-600" />
               </div>
-              <h2 className="text-3xl font-bold text-[#002868] mb-4">
+              <h2 className="text-3xl font-bold text-[#182C2A] mb-4">
                 Application Submitted!
               </h2>
               <p className="text-gray-600 mb-8 text-lg">
                 Thank you for applying with US HELOC. Our team will review your application 
                 and contact you within 24-48 hours.
               </p>
-              <div className="bg-[#002868]/5 rounded-xl p-6 mb-8">
-                <h3 className="font-semibold text-[#002868] mb-4">What happens next?</h3>
+              <div className="bg-[#182C2A]/5 rounded-xl p-6 mb-8">
+                <h3 className="font-semibold text-[#182C2A] mb-4">What happens next?</h3>
                 <ul className="text-left space-y-3 text-gray-600">
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[#BF0A30] text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                    <span className="w-6 h-6 rounded-full bg-[#28564A] text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
                     <span>Our team reviews your application (within 24 hours)</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[#BF0A30] text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                    <span className="w-6 h-6 rounded-full bg-[#28564A] text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
                     <span>A loan specialist will call to discuss your options</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[#BF0A30] text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                    <span className="w-6 h-6 rounded-full bg-[#28564A] text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
                     <span>Get approved and access your funds in as few as 5 days</span>
                   </li>
                 </ul>
@@ -191,12 +191,12 @@ export function ApplicationForm() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   variant="outline" 
-                  className="border-[#002868] text-[#002868] bg-transparent hover:bg-[#002868]/5"
+                  className="border-[#182C2A] text-[#182C2A] bg-transparent hover:bg-[#182C2A]/5"
                   onClick={() => window.location.href = "/"}
                 >
                   Back to Home
                 </Button>
-                <Button className="bg-[#BF0A30] hover:bg-[#8B0000] text-white">
+                <Button className="bg-[#28564A] hover:bg-[#1F483F] text-white">
                   <Phone className="mr-2 h-4 w-4" />
                   Call Us: (800) 555-HELOC
                 </Button>
@@ -213,11 +213,11 @@ export function ApplicationForm() {
       <div className="container max-w-4xl">
         {/* Hero Section */}
         <div className="text-center mb-8 md:mb-12">
-          <div className="inline-flex items-center gap-2 bg-[#002868]/10 px-4 py-2 rounded-full mb-4">
-            <Clock className="h-4 w-4 text-[#002868]" />
-            <span className="text-sm font-medium text-[#002868]">5-Minute Application</span>
+          <div className="inline-flex items-center gap-2 bg-[#182C2A]/10 px-4 py-2 rounded-full mb-4">
+            <Clock className="h-4 w-4 text-[#182C2A]" />
+            <span className="text-sm font-medium text-[#182C2A]">5-Minute Application</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-[#002868] mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#182C2A] mb-4">
             Home Equity Line of Credit Application
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -243,7 +243,7 @@ export function ApplicationForm() {
                         isCompleted
                           ? "bg-green-500 text-white"
                           : isCurrent
-                          ? "bg-[#BF0A30] text-white shadow-lg shadow-[#BF0A30]/30"
+                          ? "bg-[#28564A] text-white shadow-lg shadow-[#28564A]/30"
                           : "bg-gray-100 text-gray-400"
                       )}
                     >
@@ -256,7 +256,7 @@ export function ApplicationForm() {
                     <span
                       className={cn(
                         "text-xs mt-2 font-medium",
-                        isCurrent ? "text-[#002868]" : "text-gray-400"
+                        isCurrent ? "text-[#182C2A]" : "text-gray-400"
                       )}
                     >
                       {step.title}
@@ -278,7 +278,7 @@ export function ApplicationForm() {
           {/* Mobile Progress */}
           <div className="md:hidden">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-[#002868]">
+              <span className="text-sm font-medium text-[#182C2A]">
                 Step {currentStep} of 6: {steps[currentStep - 1].title}
               </span>
               <span className="text-sm text-gray-500">{Math.round(progress)}%</span>
@@ -289,14 +289,14 @@ export function ApplicationForm() {
 
         {/* Form Card */}
         <Card className="border-0 shadow-2xl overflow-hidden">
-          <div className="h-1 bg-gradient-to-r from-[#002868] via-[#BF0A30] to-[#002868]" />
+          <div className="h-1 bg-gradient-to-r from-[#182C2A] via-[#28564A] to-[#182C2A]" />
           
           {/* Step 1: Personal Information */}
           {currentStep === 1 && (
             <>
-              <CardHeader className="bg-gradient-to-r from-[#002868]/5 to-transparent border-b">
-                <CardTitle className="flex items-center gap-3 text-[#002868]">
-                  <div className="w-10 h-10 rounded-full bg-[#002868] text-white flex items-center justify-center">
+              <CardHeader className="bg-gradient-to-r from-[#182C2A]/5 to-transparent border-b">
+                <CardTitle className="flex items-center gap-3 text-[#182C2A]">
+                  <div className="w-10 h-10 rounded-full bg-[#182C2A] text-white flex items-center justify-center">
                     <User className="h-5 w-5" />
                   </div>
                   Personal Information
@@ -309,26 +309,26 @@ export function ApplicationForm() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="firstName" className="text-gray-700">
-                      First Name <span className="text-[#BF0A30]">*</span>
+                      First Name <span className="text-[#28564A]">*</span>
                     </Label>
                     <Input
                       id="firstName"
                       placeholder="John"
                       value={formData.firstName}
                       onChange={(e) => updateFormData("firstName", e.target.value)}
-                      className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                      className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName" className="text-gray-700">
-                      Last Name <span className="text-[#BF0A30]">*</span>
+                      Last Name <span className="text-[#28564A]">*</span>
                     </Label>
                     <Input
                       id="lastName"
                       placeholder="Smith"
                       value={formData.lastName}
                       onChange={(e) => updateFormData("lastName", e.target.value)}
-                      className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                      className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                     />
                   </div>
                 </div>
@@ -336,7 +336,7 @@ export function ApplicationForm() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-gray-700">
-                      Email Address <span className="text-[#BF0A30]">*</span>
+                      Email Address <span className="text-[#28564A]">*</span>
                     </Label>
                     <Input
                       id="email"
@@ -344,12 +344,12 @@ export function ApplicationForm() {
                       placeholder="john@example.com"
                       value={formData.email}
                       onChange={(e) => updateFormData("email", e.target.value)}
-                      className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                      className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone" className="text-gray-700">
-                      Phone Number <span className="text-[#BF0A30]">*</span>
+                      Phone Number <span className="text-[#28564A]">*</span>
                     </Label>
                     <Input
                       id="phone"
@@ -357,7 +357,7 @@ export function ApplicationForm() {
                       placeholder="(555) 123-4567"
                       value={formData.phone}
                       onChange={(e) => updateFormData("phone", e.target.value)}
-                      className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                      className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                     />
                   </div>
                 </div>
@@ -365,19 +365,19 @@ export function ApplicationForm() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="dateOfBirth" className="text-gray-700">
-                      Date of Birth <span className="text-[#BF0A30]">*</span>
+                      Date of Birth <span className="text-[#28564A]">*</span>
                     </Label>
                     <Input
                       id="dateOfBirth"
                       type="date"
                       value={formData.dateOfBirth}
                       onChange={(e) => updateFormData("dateOfBirth", e.target.value)}
-                      className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                      className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="ssn" className="text-gray-700">
-                      Social Security Number <span className="text-[#BF0A30]">*</span>
+                      Social Security Number <span className="text-[#28564A]">*</span>
                     </Label>
                     <Input
                       id="ssn"
@@ -385,7 +385,7 @@ export function ApplicationForm() {
                       placeholder="XXX-XX-XXXX"
                       value={formData.ssn}
                       onChange={(e) => updateFormData("ssn", e.target.value)}
-                      className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                      className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                     />
                     <p className="text-xs text-gray-500 flex items-center gap-1">
                       <Shield className="h-3 w-3" />
@@ -400,9 +400,9 @@ export function ApplicationForm() {
           {/* Step 2: Business Information */}
           {currentStep === 2 && (
             <>
-              <CardHeader className="bg-gradient-to-r from-[#002868]/5 to-transparent border-b">
-                <CardTitle className="flex items-center gap-3 text-[#002868]">
-                  <div className="w-10 h-10 rounded-full bg-[#002868] text-white flex items-center justify-center">
+              <CardHeader className="bg-gradient-to-r from-[#182C2A]/5 to-transparent border-b">
+                <CardTitle className="flex items-center gap-3 text-[#182C2A]">
+                  <div className="w-10 h-10 rounded-full bg-[#182C2A] text-white flex items-center justify-center">
                     <Building2 className="h-5 w-5" />
                   </div>
                   Business Information
@@ -414,21 +414,21 @@ export function ApplicationForm() {
               <CardContent className="p-6 md:p-8 space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="businessName" className="text-gray-700">
-                    Business Name <span className="text-[#BF0A30]">*</span>
+                    Business Name <span className="text-[#28564A]">*</span>
                   </Label>
                   <Input
                     id="businessName"
                     placeholder="Acme Corporation"
                     value={formData.businessName}
                     onChange={(e) => updateFormData("businessName", e.target.value)}
-                    className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                    className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="employmentType" className="text-gray-700">
-                      Employment Type <span className="text-[#BF0A30]">*</span>
+                      Employment Type <span className="text-[#28564A]">*</span>
                     </Label>
                     <Select
                       value={formData.employmentType}
@@ -448,7 +448,7 @@ export function ApplicationForm() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="yearsInBusiness" className="text-gray-700">
-                      Years in Business <span className="text-[#BF0A30]">*</span>
+                      Years in Business <span className="text-[#28564A]">*</span>
                     </Label>
                     <Select
                       value={formData.yearsInBusiness}
@@ -471,7 +471,7 @@ export function ApplicationForm() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="annualPersonalIncome" className="text-gray-700">
-                      Annual Personal Income <span className="text-[#BF0A30]">*</span>
+                      Annual Personal Income <span className="text-[#28564A]">*</span>
                     </Label>
                     <div className="relative">
                       <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -481,13 +481,13 @@ export function ApplicationForm() {
                         placeholder="150,000"
                         value={formData.annualPersonalIncome}
                         onChange={(e) => updateFormData("annualPersonalIncome", e.target.value)}
-                        className="h-12 pl-10 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                        className="h-12 pl-10 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="monthlyBusinessIncome" className="text-gray-700">
-                      Average Monthly Business Income <span className="text-[#BF0A30]">*</span>
+                      Average Monthly Business Income <span className="text-[#28564A]">*</span>
                     </Label>
                     <div className="relative">
                       <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -497,7 +497,7 @@ export function ApplicationForm() {
                         placeholder="25,000"
                         value={formData.monthlyBusinessIncome}
                         onChange={(e) => updateFormData("monthlyBusinessIncome", e.target.value)}
-                        className="h-12 pl-10 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                        className="h-12 pl-10 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                       />
                     </div>
                   </div>
@@ -509,9 +509,9 @@ export function ApplicationForm() {
           {/* Step 3: Property Information */}
           {currentStep === 3 && (
             <>
-              <CardHeader className="bg-gradient-to-r from-[#002868]/5 to-transparent border-b">
-                <CardTitle className="flex items-center gap-3 text-[#002868]">
-                  <div className="w-10 h-10 rounded-full bg-[#002868] text-white flex items-center justify-center">
+              <CardHeader className="bg-gradient-to-r from-[#182C2A]/5 to-transparent border-b">
+                <CardTitle className="flex items-center gap-3 text-[#182C2A]">
+                  <div className="w-10 h-10 rounded-full bg-[#182C2A] text-white flex items-center justify-center">
                     <Home className="h-5 w-5" />
                   </div>
                   Property Information
@@ -523,14 +523,14 @@ export function ApplicationForm() {
               <CardContent className="p-6 md:p-8 space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="propertyAddress" className="text-gray-700">
-                    Street Address <span className="text-[#BF0A30]">*</span>
+                    Street Address <span className="text-[#28564A]">*</span>
                   </Label>
                   <Input
                     id="propertyAddress"
                     placeholder="123 Main Street"
                     value={formData.propertyAddress}
                     onChange={(e) => updateFormData("propertyAddress", e.target.value)}
-                    className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                    className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                   />
                 </div>
 
@@ -543,26 +543,26 @@ export function ApplicationForm() {
                     placeholder="Apt, Suite, Unit, etc."
                     value={formData.propertyAddress2}
                     onChange={(e) => updateFormData("propertyAddress2", e.target.value)}
-                    className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                    className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="col-span-2 md:col-span-1 space-y-2">
                     <Label htmlFor="propertyCity" className="text-gray-700">
-                      City <span className="text-[#BF0A30]">*</span>
+                      City <span className="text-[#28564A]">*</span>
                     </Label>
                     <Input
                       id="propertyCity"
                       placeholder="New York"
                       value={formData.propertyCity}
                       onChange={(e) => updateFormData("propertyCity", e.target.value)}
-                      className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                      className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="propertyState" className="text-gray-700">
-                      State <span className="text-[#BF0A30]">*</span>
+                      State <span className="text-[#28564A]">*</span>
                     </Label>
                     <Select
                       value={formData.propertyState}
@@ -582,21 +582,21 @@ export function ApplicationForm() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="propertyZip" className="text-gray-700">
-                      ZIP Code <span className="text-[#BF0A30]">*</span>
+                      ZIP Code <span className="text-[#28564A]">*</span>
                     </Label>
                     <Input
                       id="propertyZip"
                       placeholder="10001"
                       value={formData.propertyZip}
                       onChange={(e) => updateFormData("propertyZip", e.target.value)}
-                      className="h-12 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                      className="h-12 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label className="text-gray-700">
-                    Property Type <span className="text-[#BF0A30]">*</span>
+                    Property Type <span className="text-[#28564A]">*</span>
                   </Label>
                   <RadioGroup
                     value={formData.propertyType}
@@ -610,7 +610,7 @@ export function ApplicationForm() {
                         className={cn(
                           "flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition-all",
                           formData.propertyType === type
-                            ? "border-[#002868] bg-[#002868]/5"
+                            ? "border-[#182C2A] bg-[#182C2A]/5"
                             : "border-gray-200 hover:border-gray-300"
                         )}
                       >
@@ -624,7 +624,7 @@ export function ApplicationForm() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="estimatedValue" className="text-gray-700">
-                      Estimated Property Value <span className="text-[#BF0A30]">*</span>
+                      Estimated Property Value <span className="text-[#28564A]">*</span>
                     </Label>
                     <div className="relative">
                       <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -634,13 +634,13 @@ export function ApplicationForm() {
                         placeholder="500,000"
                         value={formData.estimatedValue}
                         onChange={(e) => updateFormData("estimatedValue", e.target.value)}
-                        className="h-12 pl-10 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                        className="h-12 pl-10 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="currentMortgageBalance" className="text-gray-700">
-                      Current Mortgage Balance <span className="text-[#BF0A30]">*</span>
+                      Current Mortgage Balance <span className="text-[#28564A]">*</span>
                     </Label>
                     <div className="relative">
                       <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -650,7 +650,7 @@ export function ApplicationForm() {
                         placeholder="300,000"
                         value={formData.currentMortgageBalance}
                         onChange={(e) => updateFormData("currentMortgageBalance", e.target.value)}
-                        className="h-12 pl-10 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                        className="h-12 pl-10 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                       />
                     </div>
                   </div>
@@ -662,9 +662,9 @@ export function ApplicationForm() {
           {/* Step 4: Loan Details */}
           {currentStep === 4 && (
             <>
-              <CardHeader className="bg-gradient-to-r from-[#002868]/5 to-transparent border-b">
-                <CardTitle className="flex items-center gap-3 text-[#002868]">
-                  <div className="w-10 h-10 rounded-full bg-[#002868] text-white flex items-center justify-center">
+              <CardHeader className="bg-gradient-to-r from-[#182C2A]/5 to-transparent border-b">
+                <CardTitle className="flex items-center gap-3 text-[#182C2A]">
+                  <div className="w-10 h-10 rounded-full bg-[#182C2A] text-white flex items-center justify-center">
                     <DollarSign className="h-5 w-5" />
                   </div>
                   Loan Details
@@ -676,7 +676,7 @@ export function ApplicationForm() {
               <CardContent className="p-6 md:p-8 space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="loanAmount" className="text-gray-700">
-                    Desired Loan Amount <span className="text-[#BF0A30]">*</span>
+                    Desired Loan Amount <span className="text-[#28564A]">*</span>
                   </Label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -686,7 +686,7 @@ export function ApplicationForm() {
                       placeholder="100,000"
                       value={formData.loanAmount}
                       onChange={(e) => updateFormData("loanAmount", e.target.value)}
-                      className="h-12 pl-10 border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                      className="h-12 pl-10 border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                     />
                   </div>
                   <p className="text-sm text-gray-500">
@@ -696,7 +696,7 @@ export function ApplicationForm() {
 
                 <div className="space-y-2">
                   <Label className="text-gray-700">
-                    Primary Purpose of Loan <span className="text-[#BF0A30]">*</span>
+                    Primary Purpose of Loan <span className="text-[#28564A]">*</span>
                   </Label>
                   <RadioGroup
                     value={formData.loanPurpose}
@@ -710,7 +710,7 @@ export function ApplicationForm() {
                         className={cn(
                           "flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition-all",
                           formData.loanPurpose === purpose
-                            ? "border-[#002868] bg-[#002868]/5"
+                            ? "border-[#182C2A] bg-[#182C2A]/5"
                             : "border-gray-200 hover:border-gray-300"
                         )}
                       >
@@ -730,18 +730,18 @@ export function ApplicationForm() {
                     placeholder="Tell us more about your financial goals or any special circumstances..."
                     value={formData.additionalInfo}
                     onChange={(e) => updateFormData("additionalInfo", e.target.value)}
-                    className="min-h-[120px] border-gray-200 focus:border-[#002868] focus:ring-[#002868]"
+                    className="min-h-[120px] border-gray-200 focus:border-[#182C2A] focus:ring-[#182C2A]"
                   />
                 </div>
 
                 {/* Equity Calculator Preview */}
                 {formData.estimatedValue && formData.currentMortgageBalance && (
-                  <div className="bg-gradient-to-r from-[#002868]/10 to-[#BF0A30]/10 rounded-xl p-6">
-                    <h4 className="font-semibold text-[#002868] mb-4">Estimated Equity Available</h4>
+                  <div className="bg-gradient-to-r from-[#182C2A]/10 to-[#28564A]/10 rounded-xl p-6">
+                    <h4 className="font-semibold text-[#182C2A] mb-4">Estimated Equity Available</h4>
                     <div className="grid grid-cols-3 gap-4 text-center">
                       <div>
                         <p className="text-sm text-gray-600">Property Value</p>
-                        <p className="text-xl font-bold text-[#002868]">
+                        <p className="text-xl font-bold text-[#182C2A]">
                           ${Number(formData.estimatedValue).toLocaleString()}
                         </p>
                       </div>
@@ -767,9 +767,9 @@ export function ApplicationForm() {
           {/* Step 5: Documents */}
           {currentStep === 5 && (
             <>
-              <CardHeader className="bg-gradient-to-r from-[#002868]/5 to-transparent border-b">
-                <CardTitle className="flex items-center gap-3 text-[#002868]">
-                  <div className="w-10 h-10 rounded-full bg-[#002868] text-white flex items-center justify-center">
+              <CardHeader className="bg-gradient-to-r from-[#182C2A]/5 to-transparent border-b">
+                <CardTitle className="flex items-center gap-3 text-[#182C2A]">
+                  <div className="w-10 h-10 rounded-full bg-[#182C2A] text-white flex items-center justify-center">
                     <FileText className="h-5 w-5" />
                   </div>
                   Supporting Documents
@@ -779,7 +779,7 @@ export function ApplicationForm() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6 md:p-8 space-y-6">
-                <div className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center hover:border-[#002868]/50 transition-colors">
+                <div className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center hover:border-[#182C2A]/50 transition-colors">
                   <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                   <h4 className="font-semibold text-gray-700 mb-2">
                     Upload Business Bank Statements
@@ -795,7 +795,7 @@ export function ApplicationForm() {
                       onChange={handleFileUpload}
                       className="hidden"
                     />
-                    <Button type="button" variant="outline" className="border-[#002868] text-[#002868] bg-transparent hover:bg-[#002868]/5">
+                    <Button type="button" variant="outline" className="border-[#182C2A] text-[#182C2A] bg-transparent hover:bg-[#182C2A]/5">
                       Choose Files
                     </Button>
                   </label>
@@ -810,7 +810,7 @@ export function ApplicationForm() {
                         className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
                       >
                         <div className="flex items-center gap-3">
-                          <FileText className="h-5 w-5 text-[#002868]" />
+                          <FileText className="h-5 w-5 text-[#182C2A]" />
                           <span className="text-sm text-gray-700">{file.name}</span>
                           <span className="text-xs text-gray-500">
                             ({(file.size / 1024).toFixed(1)} KB)
@@ -821,7 +821,7 @@ export function ApplicationForm() {
                           variant="ghost"
                           size="icon"
                           onClick={() => removeFile(index)}
-                          className="h-8 w-8 text-gray-400 hover:text-[#BF0A30]"
+                          className="h-8 w-8 text-gray-400 hover:text-[#28564A]"
                         >
                           <X className="h-4 w-4" />
                         </Button>
@@ -830,8 +830,8 @@ export function ApplicationForm() {
                   </div>
                 )}
 
-                <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                  <h4 className="font-medium text-[#002868] mb-2">Helpful Documents Include:</h4>
+                <div className="bg-[#EEF2ED] border border-[#DFE6E2] rounded-xl p-4">
+                  <h4 className="font-medium text-[#182C2A] mb-2">Helpful Documents Include:</h4>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>- Last 3 months of bank statements</li>
                     <li>- Recent tax returns (if available)</li>
@@ -846,9 +846,9 @@ export function ApplicationForm() {
           {/* Step 6: Review & Submit */}
           {currentStep === 6 && (
             <>
-              <CardHeader className="bg-gradient-to-r from-[#002868]/5 to-transparent border-b">
-                <CardTitle className="flex items-center gap-3 text-[#002868]">
-                  <div className="w-10 h-10 rounded-full bg-[#002868] text-white flex items-center justify-center">
+              <CardHeader className="bg-gradient-to-r from-[#182C2A]/5 to-transparent border-b">
+                <CardTitle className="flex items-center gap-3 text-[#182C2A]">
+                  <div className="w-10 h-10 rounded-full bg-[#182C2A] text-white flex items-center justify-center">
                     <CheckCircle2 className="h-5 w-5" />
                   </div>
                   Review Your Application
@@ -861,7 +861,7 @@ export function ApplicationForm() {
                 {/* Summary Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="bg-gray-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-[#002868] mb-3 flex items-center gap-2">
+                    <h4 className="font-semibold text-[#182C2A] mb-3 flex items-center gap-2">
                       <User className="h-4 w-4" /> Personal Information
                     </h4>
                     <div className="space-y-2 text-sm">
@@ -872,7 +872,7 @@ export function ApplicationForm() {
                   </div>
 
                   <div className="bg-gray-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-[#002868] mb-3 flex items-center gap-2">
+                    <h4 className="font-semibold text-[#182C2A] mb-3 flex items-center gap-2">
                       <Building2 className="h-4 w-4" /> Business Information
                     </h4>
                     <div className="space-y-2 text-sm">
@@ -883,7 +883,7 @@ export function ApplicationForm() {
                   </div>
 
                   <div className="bg-gray-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-[#002868] mb-3 flex items-center gap-2">
+                    <h4 className="font-semibold text-[#182C2A] mb-3 flex items-center gap-2">
                       <Home className="h-4 w-4" /> Property Information
                     </h4>
                     <div className="space-y-2 text-sm">
@@ -894,7 +894,7 @@ export function ApplicationForm() {
                   </div>
 
                   <div className="bg-gray-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-[#002868] mb-3 flex items-center gap-2">
+                    <h4 className="font-semibold text-[#182C2A] mb-3 flex items-center gap-2">
                       <DollarSign className="h-4 w-4" /> Loan Request
                     </h4>
                     <div className="space-y-2 text-sm">
@@ -915,10 +915,10 @@ export function ApplicationForm() {
                     />
                     <Label htmlFor="agreeTerms" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
                       I agree to the{" "}
-                      <a href="#" className="text-[#002868] underline">Terms of Service</a>
+                      <a href="#" className="text-[#182C2A] underline">Terms of Service</a>
                       {" "}and{" "}
-                      <a href="#" className="text-[#002868] underline">Privacy Policy</a>.
-                      <span className="text-[#BF0A30]">*</span>
+                      <a href="#" className="text-[#182C2A] underline">Privacy Policy</a>.
+                      <span className="text-[#28564A]">*</span>
                     </Label>
                   </div>
 
@@ -930,7 +930,7 @@ export function ApplicationForm() {
                     />
                     <Label htmlFor="agreeCredit" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
                       I authorize US HELOC to obtain my credit report to evaluate my application.
-                      <span className="text-[#BF0A30]">*</span>
+                      <span className="text-[#28564A]">*</span>
                     </Label>
                   </div>
 
@@ -981,7 +981,7 @@ export function ApplicationForm() {
               <Button
                 type="button"
                 onClick={nextStep}
-                className="h-12 px-8 bg-[#BF0A30] hover:bg-[#8B0000] text-white"
+                className="h-12 px-8 bg-[#28564A] hover:bg-[#1F483F] text-white"
               >
                 Continue
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -991,7 +991,7 @@ export function ApplicationForm() {
                 type="button"
                 onClick={handleSubmit}
                 disabled={!formData.agreeTerms || !formData.agreeCredit}
-                className="h-12 px-8 bg-[#BF0A30] hover:bg-[#8B0000] text-white disabled:opacity-50"
+                className="h-12 px-8 bg-[#28564A] hover:bg-[#1F483F] text-white disabled:opacity-50"
               >
                 Submit Application
                 <CheckCircle2 className="ml-2 h-4 w-4" />
@@ -1011,7 +1011,7 @@ export function ApplicationForm() {
             <span>NMLS #123456</span>
           </div>
           <div className="flex items-center gap-2">
-            <Clock className="h-4 w-4 text-[#002868]" />
+            <Clock className="h-4 w-4 text-[#182C2A]" />
             <span>5-Day Funding</span>
           </div>
         </div>

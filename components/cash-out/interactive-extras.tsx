@@ -27,7 +27,7 @@ export function EligibilityChecklist() {
 
   return (
     <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-      <h3 className="mb-1 text-lg font-bold text-[#002868]">Quick eligibility checklist</h3>
+      <h3 className="mb-1 text-lg font-bold text-[#182C2A]">Quick eligibility checklist</h3>
       <p className="mb-4 text-sm text-gray-500">
         A self-review only. Checking items does not guarantee approval.
       </p>
@@ -39,8 +39,8 @@ export function EligibilityChecklist() {
               className={cn(
                 "flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all",
                 checked.has(i)
-                  ? "border-green-300 bg-green-50 text-[#002868]"
-                  : "border-gray-200 bg-white text-gray-600 hover:border-[#002868]/40",
+                  ? "border-green-300 bg-green-50 text-[#182C2A]"
+                  : "border-gray-200 bg-white text-gray-600 hover:border-[#182C2A]/40",
               )}
             >
               <span
@@ -86,8 +86,8 @@ export function ScenarioSelector() {
             className={cn(
               "rounded-full border px-5 py-2.5 text-sm font-medium transition-all",
               active === s.key
-                ? "border-[#002868] bg-[#002868] text-white shadow"
-                : "border-gray-300 bg-white text-gray-600 hover:border-[#002868]",
+                ? "border-[#182C2A] bg-[#182C2A] text-white shadow"
+                : "border-gray-300 bg-white text-gray-600 hover:border-[#182C2A]",
             )}
           >
             {s.label}
@@ -103,7 +103,7 @@ export function ScenarioSelector() {
           transition={{ duration: 0.3 }}
           className="mx-auto max-w-2xl rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm"
         >
-          <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#BF0A30]">{current.label}</p>
+          <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#28564A]">{current.label}</p>
           <p className="text-lg text-gray-700">{current.note}</p>
           <p className="mt-4 text-sm text-gray-500">
             Based on your selected priority, compare cash-out refinancing with a HELOC or home equity

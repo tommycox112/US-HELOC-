@@ -7,7 +7,7 @@ import { siteConfig, show, track } from "@/lib/site-config"
 import { cn } from "@/lib/utils"
 
 export function PrequalButton({
-  label = "Check My Options",
+  label = "Explore My Options",
   source,
   variant = "primary",
   size = "lg",
@@ -21,10 +21,10 @@ export function PrequalButton({
 }) {
   const { open } = usePrequal()
   const styles = {
-    primary: "bg-[#BF0A30] text-white hover:bg-[#8B0000]",
-    navy: "bg-[#002868] text-white hover:bg-[#001b4d]",
-    outline: "border border-[#002868] bg-transparent text-[#002868] hover:bg-blue-50",
-    white: "bg-white text-[#BF0A30] hover:bg-gray-100",
+    primary: "bg-[#28564A] text-white hover:bg-[#1F483F]",
+    navy: "bg-[#182C2A] text-white hover:bg-[#001b4d]",
+    outline: "border border-[#182C2A] bg-transparent text-[#182C2A] hover:bg-[#EEF2ED]",
+    white: "bg-white text-[#28564A] hover:bg-gray-100",
   }
   return (
     <Button
@@ -52,7 +52,7 @@ export function SpecialistButton({
 }) {
   const email = show(siteConfig.contact.email)
   const styles = {
-    outline: "border border-[#002868] bg-transparent text-[#002868] hover:bg-blue-50",
+    outline: "border border-[#182C2A] bg-transparent text-[#182C2A] hover:bg-[#EEF2ED]",
     white: "border border-white/30 bg-transparent text-white hover:bg-white/10",
   }
   return (
@@ -96,7 +96,7 @@ export function MobileStickyCta() {
           track("cash_out_hero_cta_clicked", { source: "mobile-sticky" })
           open("mobile-sticky")
         }}
-        className="h-12 w-full rounded-full bg-[#BF0A30] font-semibold text-white hover:bg-[#8B0000]"
+        className="h-12 w-full rounded-full bg-[#28564A] font-semibold text-white hover:bg-[#1F483F]"
       >
         Estimate My Cash-Out
         <ArrowRight className="ml-2 h-4 w-4" />

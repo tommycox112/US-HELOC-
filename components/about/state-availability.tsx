@@ -83,7 +83,7 @@ export function StateAvailability() {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search your state"
             aria-label="Search state availability"
-            className="w-full rounded-full border border-gray-200 bg-gray-50 py-2 pl-9 pr-4 text-sm outline-none transition-colors focus:border-[#002868] focus:bg-white"
+            className="w-full rounded-full border border-gray-200 bg-gray-50 py-2 pl-9 pr-4 text-sm outline-none transition-colors focus:border-[#182C2A] focus:bg-white"
           />
         </div>
       </div>

@@ -34,7 +34,7 @@ export function LeadershipGrid() {
             <button
               type="button"
               onClick={() => setActive(leader)}
-              className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-[#bf0a30]/40 hover:shadow-lg"
+              className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-[#28564A]/40 hover:shadow-lg"
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-100">
                 <Image
@@ -44,13 +44,13 @@ export function LeadershipGrid() {
                   sizes="(max-width: 640px) 100vw, 25vw"
                   className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[#002868] via-[#bf0a30] to-[#002868]" />
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[#182C2A] via-[#28564A] to-[#182C2A]" />
               </div>
               <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-lg font-bold text-[#002868]">{leader.name}</h3>
-                <p className="text-sm font-semibold text-[#bf0a30]">{leader.title}</p>
+                <h3 className="text-lg font-bold text-[#182C2A]">{leader.name}</h3>
+                <p className="text-sm font-semibold text-[#28564A]">{leader.title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-gray-600">{leader.responsibility}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#002868] opacity-0 transition-opacity group-hover:opacity-100">
+                <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#182C2A] opacity-0 transition-opacity group-hover:opacity-100">
                   Read profile <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>
               </div>
@@ -69,7 +69,7 @@ export function LeadershipGrid() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute inset-0 bg-[#002868]/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#182C2A]/60 backdrop-blur-sm"
             onClick={() => setActive(null)}
           />
           <motion.div
@@ -95,12 +95,12 @@ export function LeadershipGrid() {
               >
                 <X className="h-4 w-4" />
               </button>
-              <h3 className="text-2xl font-bold text-[#002868]">{active.name}</h3>
-              <p className="font-semibold text-[#bf0a30]">{active.title}</p>
+              <h3 className="text-2xl font-bold text-[#182C2A]">{active.name}</h3>
+              <p className="font-semibold text-[#28564A]">{active.title}</p>
               <p className="mt-4 leading-relaxed text-gray-700">{active.bio}</p>
 
               {active.quote ? (
-                <blockquote className="mt-5 border-l-4 border-[#bf0a30] bg-gray-50 py-3 pl-4 pr-2 text-sm italic leading-relaxed text-[#002868]">
+                <blockquote className="mt-5 border-l-4 border-[#28564A] bg-gray-50 py-3 pl-4 pr-2 text-sm italic leading-relaxed text-[#182C2A]">
                   &ldquo;{active.quote}&rdquo;
                 </blockquote>
               ) : null}
@@ -110,7 +110,7 @@ export function LeadershipGrid() {
                 {active.areas.map((a) => (
                   <span
                     key={a}
-                    className="rounded-full bg-[#002868]/5 px-3 py-1 text-xs font-medium text-[#002868]"
+                    className="rounded-full bg-[#182C2A]/5 px-3 py-1 text-xs font-medium text-[#182C2A]"
                   >
                     {a}
                   </span>
@@ -139,7 +139,7 @@ export function LeadershipGrid() {
                   href={active.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#002868] hover:text-[#bf0a30]"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#182C2A] hover:text-[#28564A]"
                 >
                   <Linkedin className="h-4 w-4" /> Connect on LinkedIn
                 </a>

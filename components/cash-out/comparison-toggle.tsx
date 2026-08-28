@@ -92,8 +92,8 @@ export function ComparisonToggle() {
               className={cn(
                 "rounded-full border px-4 py-2 text-sm font-medium transition-all",
                 selected.has(p.key)
-                  ? "border-[#BF0A30] bg-[#BF0A30] text-white shadow"
-                  : "border-gray-300 bg-white text-gray-600 hover:border-[#002868]",
+                  ? "border-[#28564A] bg-[#28564A] text-white shadow"
+                  : "border-gray-300 bg-white text-gray-600 hover:border-[#182C2A]",
               )}
             >
               {p.label}
@@ -107,9 +107,9 @@ export function ComparisonToggle() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="mx-auto mt-5 max-w-md rounded-2xl border border-[#002868]/15 bg-blue-50/60 p-4 text-center"
+              className="mx-auto mt-5 max-w-md rounded-2xl border border-[#182C2A]/15 bg-[#EEF2ED]/70 p-4 text-center"
             >
-              <p className="text-sm font-semibold text-[#002868]">{recommendation}</p>
+              <p className="text-sm font-semibold text-[#182C2A]">{recommendation}</p>
               <p className="mt-1 text-xs text-gray-500">
                 This is educational information, not financial advice or a guarantee of suitability.
               </p>
@@ -120,15 +120,15 @@ export function ComparisonToggle() {
 
       {/* Comparison cards */}
       <div className="grid gap-6 lg:grid-cols-2">
-        <CompareCard data={cashOut} icon={RefreshCw} highlight={recommendation?.includes("cash-out")} accent="#BF0A30" />
-        <CompareCard data={heloc} icon={Layers} highlight={recommendation?.includes("HELOC")} accent="#002868" />
+        <CompareCard data={cashOut} icon={RefreshCw} highlight={recommendation?.includes("cash-out")} accent="#28564A" />
+        <CompareCard data={heloc} icon={Layers} highlight={recommendation?.includes("HELOC")} accent="#182C2A" />
       </div>
 
       <div className="mt-8 text-center">
         <Button
           onClick={() => open("comparison")}
           size="lg"
-          className="rounded-full bg-[#002868] px-8 font-semibold text-white hover:bg-[#001b4d]"
+          className="rounded-full bg-[#182C2A] px-8 font-semibold text-white hover:bg-[#001b4d]"
         >
           Compare My Options <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
@@ -165,7 +165,7 @@ function CompareCard({
         >
           <Icon className="h-5 w-5" />
         </div>
-        <h3 className="text-xl font-bold text-[#002868]">{data.title}</h3>
+        <h3 className="text-xl font-bold text-[#182C2A]">{data.title}</h3>
       </div>
       <div className="grid gap-6 p-6 sm:grid-cols-2">
         <div>

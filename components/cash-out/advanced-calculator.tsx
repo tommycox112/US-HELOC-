@@ -77,8 +77,8 @@ function CashOutCalculator() {
   }, [value, first, second, helocBal, targetLtv, desiredCash, closingPct, rate, term, taxes, insurance, hoa])
 
   const chartData = [
-    { name: "Existing payoff", value: Math.round(c.liens), color: "#002868" },
-    { name: "Cash proceeds", value: Math.round(c.netProceeds), color: "#BF0A30" },
+    { name: "Existing payoff", value: Math.round(c.liens), color: "#182C2A" },
+    { name: "Cash proceeds", value: Math.round(c.netProceeds), color: "#28564A" },
     { name: "Closing costs", value: Math.round(c.closingCosts), color: "#94a3b8" },
     { name: "Remaining equity", value: Math.round(c.remainingEquity), color: "#0d9488" },
   ].filter((d) => d.value > 0)
@@ -116,7 +116,7 @@ function CashOutCalculator() {
                 key={t}
                 onClick={() => setTerm(t)}
                 className={`flex-1 rounded-xl border py-2 text-sm font-medium transition ${
-                  term === t ? "border-[#BF0A30] bg-[#BF0A30] text-white" : "border-gray-200 bg-white text-gray-600 hover:border-[#002868]"
+                  term === t ? "border-[#28564A] bg-[#28564A] text-white" : "border-gray-200 bg-white text-gray-600 hover:border-[#182C2A]"
                 }`}
               >
                 {t} yr
@@ -139,7 +139,7 @@ function CashOutCalculator() {
             </ResponsiveContainer>
             <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center pt-2">
               <span className="text-xs text-gray-500">Est. net proceeds</span>
-              <span className="text-2xl font-bold text-[#002868]">{usd(c.netProceeds)}</span>
+              <span className="text-2xl font-bold text-[#182C2A]">{usd(c.netProceeds)}</span>
             </div>
           </div>
           <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
@@ -168,9 +168,9 @@ function CashOutCalculator() {
             track("cash_out_calculator_completed", { netProceeds: Math.round(c.netProceeds) })
             open("calculator")
           }}
-          className="h-11 w-full rounded-full bg-[#BF0A30] font-semibold text-white hover:bg-[#8B0000]"
+          className="h-11 w-full rounded-full bg-[#28564A] font-semibold text-white hover:bg-[#1F483F]"
         >
-          Check My Options <ArrowRight className="ml-2 h-4 w-4" />
+          Explore My Options <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </div>
     </div>
@@ -257,7 +257,7 @@ function BreakEvenCalculator() {
           )}
           <p className="mt-2 text-xs text-gray-500">
             Estimated total-cost difference vs. keeping your mortgage:{" "}
-            <span className="font-semibold text-[#002868]">
+            <span className="font-semibold text-[#182C2A]">
               {b.totalCostDiff >= 0 ? "+" : ""}{usd(b.totalCostDiff)}
             </span>
           </p>
@@ -278,7 +278,7 @@ function SliderRow({
     <div className="space-y-1.5">
       <div className="flex items-center justify-between">
         <Label className="text-xs font-medium text-gray-600">{label}</Label>
-        <span className="text-sm font-bold text-[#002868]">{value.toFixed(decimals)}{suffix}</span>
+        <span className="text-sm font-bold text-[#182C2A]">{value.toFixed(decimals)}{suffix}</span>
       </div>
       <Slider value={[value]} min={min} max={max} step={step} onValueChange={(v) => onChange(v[0])} />
     </div>
@@ -287,9 +287,9 @@ function SliderRow({
 
 function Metric({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
   return (
-    <div className={`rounded-xl border p-3 ${accent ? "border-[#BF0A30]/20 bg-[#BF0A30]/5" : "border-gray-200 bg-white"}`}>
+    <div className={`rounded-xl border p-3 ${accent ? "border-[#28564A]/20 bg-[#28564A]/5" : "border-gray-200 bg-white"}`}>
       <p className="text-[11px] leading-tight text-gray-500">{label}</p>
-      <p className={`mt-0.5 text-base font-bold ${accent ? "text-[#BF0A30]" : "text-[#002868]"}`}>{value}</p>
+      <p className={`mt-0.5 text-base font-bold ${accent ? "text-[#28564A]" : "text-[#182C2A]"}`}>{value}</p>
     </div>
   )
 }

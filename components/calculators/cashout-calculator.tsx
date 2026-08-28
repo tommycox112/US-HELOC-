@@ -67,7 +67,7 @@ export function CashoutCalculator() {
   return (
     <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#BF0A30] to-[#8B0000] p-6 text-white relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#28564A] to-[#1F483F] p-6 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="flex items-center gap-3 mb-2 relative z-10">
           <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -83,7 +83,7 @@ export function CashoutCalculator() {
         <div className="space-y-3">
           <div className="flex justify-between items-center">
             <label className="text-sm font-medium text-gray-700">Home Value</label>
-            <span className="text-lg font-bold text-[#002868]">${homeValue.toLocaleString()}</span>
+            <span className="text-lg font-bold text-[#182C2A]">${homeValue.toLocaleString()}</span>
           </div>
           <Slider
             value={[homeValue]}
@@ -91,7 +91,7 @@ export function CashoutCalculator() {
             min={150000}
             max={2500000}
             step={10000}
-            className="[&_[role=slider]]:bg-[#BF0A30] [&_[role=slider]]:border-[#BF0A30] [&_.bg-primary]:bg-[#002868]"
+            className="[&_[role=slider]]:bg-[#28564A] [&_[role=slider]]:border-[#28564A] [&_.bg-primary]:bg-[#182C2A]"
           />
         </div>
 
@@ -99,7 +99,7 @@ export function CashoutCalculator() {
         <div className="space-y-3">
           <div className="flex justify-between items-center">
             <label className="text-sm font-medium text-gray-700">Current Mortgage</label>
-            <span className="text-lg font-bold text-[#002868]">${currentMortgage.toLocaleString()}</span>
+            <span className="text-lg font-bold text-[#182C2A]">${currentMortgage.toLocaleString()}</span>
           </div>
           <Slider
             value={[currentMortgage]}
@@ -107,7 +107,7 @@ export function CashoutCalculator() {
             min={0}
             max={homeValue * 0.75}
             step={5000}
-            className="[&_[role=slider]]:bg-[#BF0A30] [&_[role=slider]]:border-[#BF0A30] [&_.bg-primary]:bg-[#002868]"
+            className="[&_[role=slider]]:bg-[#28564A] [&_[role=slider]]:border-[#28564A] [&_.bg-primary]:bg-[#182C2A]"
           />
         </div>
 
@@ -115,7 +115,7 @@ export function CashoutCalculator() {
         <div className="space-y-3">
           <div className="flex justify-between items-center">
             <label className="text-sm font-medium text-gray-700">Cash Needed</label>
-            <span className="text-lg font-bold text-[#BF0A30]">${Math.min(cashNeeded, maxCashOut).toLocaleString()}</span>
+            <span className="text-lg font-bold text-[#28564A]">${Math.min(cashNeeded, maxCashOut).toLocaleString()}</span>
           </div>
           <Slider
             value={[cashNeeded]}
@@ -123,7 +123,7 @@ export function CashoutCalculator() {
             min={10000}
             max={Math.max(10000, maxCashOut)}
             step={5000}
-            className="[&_[role=slider]]:bg-[#BF0A30] [&_[role=slider]]:border-[#BF0A30] [&_.bg-primary]:bg-[#BF0A30]"
+            className="[&_[role=slider]]:bg-[#28564A] [&_[role=slider]]:border-[#28564A] [&_.bg-primary]:bg-[#28564A]"
           />
           <p className="text-xs text-gray-500">Max available: ${maxCashOut.toLocaleString()}</p>
         </div>
@@ -138,7 +138,7 @@ export function CashoutCalculator() {
                 onClick={() => setSelectedPurpose(purpose.id)}
                 className={`p-3 rounded-xl border-2 text-left transition-all duration-200 ${
                   selectedPurpose === purpose.id
-                    ? "border-[#BF0A30] bg-red-50"
+                    ? "border-[#28564A] bg-[#EEF2ED]"
                     : "border-gray-200 hover:border-gray-300"
                 }`}
               >
@@ -153,7 +153,7 @@ export function CashoutCalculator() {
         <Button
           onClick={handleCalculate}
           disabled={isCalculating || maxCashOut <= 0}
-          className="w-full h-14 bg-[#002868] hover:bg-[#001845] text-white rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          className="w-full h-14 bg-[#182C2A] hover:bg-[#0F211E] text-white rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
         >
           {isCalculating ? (
             <div className="flex items-center gap-2">
@@ -171,11 +171,11 @@ export function CashoutCalculator() {
         {/* Results */}
         {showResults && maxCashOut > 0 && (
           <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="h-px bg-gradient-to-r from-[#BF0A30] via-white to-[#002868]" />
+            <div className="h-px bg-gradient-to-r from-[#28564A] via-white to-[#182C2A]" />
             
-            <div className="bg-gradient-to-br from-blue-50 to-red-50 rounded-xl p-6 text-center border border-gray-200">
+            <div className="bg-gradient-to-br from-[#EEF2ED] to-[#F6F3EC] rounded-xl p-6 text-center border border-gray-200">
               <p className="text-sm text-gray-600 mb-1">Cash You Could Receive</p>
-              <p className="text-4xl font-bold text-[#BF0A30]">
+              <p className="text-4xl font-bold text-[#28564A]">
                 <AnimatedNumber value={Math.min(cashNeeded, maxCashOut)} prefix="$" />
               </p>
               <div className="flex items-center justify-center gap-2 mt-2 text-green-600">
@@ -187,19 +187,19 @@ export function CashoutCalculator() {
             <div className="grid grid-cols-3 gap-3">
               <div className="bg-gray-50 rounded-xl p-3 text-center">
                 <p className="text-xs text-gray-500 mb-1">New Loan</p>
-                <p className="text-base font-bold text-[#002868]">${(newLoanAmount / 1000).toFixed(0)}K</p>
+                <p className="text-base font-bold text-[#182C2A]">${(newLoanAmount / 1000).toFixed(0)}K</p>
               </div>
               <div className="bg-gray-50 rounded-xl p-3 text-center">
                 <p className="text-xs text-gray-500 mb-1">Est. Rate</p>
-                <p className="text-base font-bold text-[#002868]">{estimatedRate}%</p>
+                <p className="text-base font-bold text-[#182C2A]">{estimatedRate}%</p>
               </div>
               <div className="bg-gray-50 rounded-xl p-3 text-center">
                 <p className="text-xs text-gray-500 mb-1">LTV</p>
-                <p className="text-base font-bold text-[#002868]">{ltv}%</p>
+                <p className="text-base font-bold text-[#182C2A]">{ltv}%</p>
               </div>
             </div>
 
-            <div className="bg-[#002868] rounded-xl p-4 text-white">
+            <div className="bg-[#182C2A] rounded-xl p-4 text-white">
               <div className="flex justify-between items-center">
                 <span className="text-white/80">New Monthly Payment</span>
                 <span className="text-2xl font-bold">${monthlyPayment.toLocaleString()}/mo</span>
@@ -211,7 +211,7 @@ export function CashoutCalculator() {
               <span className="font-medium">Great candidate for cash-out refi!</span>
             </div>
 
-            <Button className="w-full h-12 bg-[#BF0A30] hover:bg-[#8B0000] text-white rounded-full font-semibold">
+            <Button className="w-full h-12 bg-[#28564A] hover:bg-[#1F483F] text-white rounded-full font-semibold">
               Get Your Actual Rate
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

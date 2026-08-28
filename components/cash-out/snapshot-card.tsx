@@ -77,8 +77,8 @@ export function SnapshotCard() {
 
   const total = value || 1
   const segments = [
-    { label: "Existing mortgage payoff", val: r.seg.payoff, color: "#002868" },
-    { label: "Cash proceeds", val: r.seg.cash, color: "#BF0A30" },
+    { label: "Existing mortgage payoff", val: r.seg.payoff, color: "#182C2A" },
+    { label: "Cash proceeds", val: r.seg.cash, color: "#28564A" },
     { label: "Estimated costs", val: r.seg.costs, color: "#94a3b8" },
     { label: "Remaining equity", val: r.seg.remaining, color: "#0d9488" },
   ]
@@ -91,20 +91,16 @@ export function SnapshotCard() {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-2xl"
       >
-        {/* Flag stripe header */}
-        <div className="flex h-1 w-full">
-          <div className="flex-1 bg-[#BF0A30]" />
-          <div className="flex-1 bg-white" />
-          <div className="flex-1 bg-[#002868]" />
-        </div>
+        {/* Brand accent header */}
+        <div className="h-1 w-full bg-[#28564A]" />
 
-        <div className="border-b border-gray-100 bg-gradient-to-br from-blue-50/60 to-white px-6 py-4">
+        <div className="border-b border-gray-100 bg-gradient-to-br from-[#EEF2ED] to-white px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#BF0A30]">Cash-Out Snapshot</p>
-              <h3 className="text-lg font-bold text-[#002868]">Estimate your available cash</h3>
+              <p className="text-xs font-bold uppercase tracking-wider text-[#28564A]">Cash-Out Snapshot</p>
+              <h3 className="text-lg font-bold text-[#182C2A]">Estimate your available cash</h3>
             </div>
-            <ShieldCheck className="h-6 w-6 text-[#002868]/40" />
+            <ShieldCheck className="h-6 w-6 text-[#182C2A]/40" />
           </div>
         </div>
 
@@ -150,7 +146,7 @@ export function SnapshotCard() {
 
           {/* Outputs */}
           <div className="space-y-3">
-            <div className="rounded-2xl bg-[#002868] p-4 text-white">
+            <div className="rounded-2xl bg-[#182C2A] p-4 text-white">
               <p className="text-xs text-white/60">Estimated available cash</p>
               <CountUp value={Math.round(r.netCash)} prefix="$" className="text-3xl font-bold" />
               <p className="mt-1 text-[11px] text-white/50">Estimate only — not an approval.</p>
@@ -227,9 +223,9 @@ export function SnapshotCard() {
         <div className="border-t border-gray-100 p-4">
           <Button
             onClick={() => open("snapshot")}
-            className="h-11 w-full rounded-full bg-[#BF0A30] font-semibold text-white hover:bg-[#8B0000]"
+            className="h-11 w-full rounded-full bg-[#28564A] font-semibold text-white hover:bg-[#1F483F]"
           >
-            Check My Options <ArrowRight className="ml-2 h-4 w-4" />
+            Explore My Options <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <p className="mt-2 text-center text-[10px] leading-relaxed text-gray-400">{disclosures.estimate}</p>
         </div>
@@ -267,7 +263,7 @@ function Row({ label, value }: { label: React.ReactNode; value: string }) {
   return (
     <div className="flex items-center justify-between border-b border-dashed border-gray-100 pb-1.5">
       <dt className="text-gray-500">{label}</dt>
-      <dd className="font-semibold text-[#002868]">{value}</dd>
+      <dd className="font-semibold text-[#182C2A]">{value}</dd>
     </div>
   )
 }

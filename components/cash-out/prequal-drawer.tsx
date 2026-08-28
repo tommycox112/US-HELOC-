@@ -130,8 +130,8 @@ function ChoiceGrid({
           className={cn(
             "rounded-xl border px-4 py-3 text-left text-sm font-medium transition-all",
             value === opt
-              ? "border-[#BF0A30] bg-[#BF0A30]/5 text-[#002868] ring-1 ring-[#BF0A30]"
-              : "border-gray-200 bg-white text-gray-700 hover:border-[#002868]/40",
+              ? "border-[#28564A] bg-[#28564A]/5 text-[#182C2A] ring-1 ring-[#28564A]"
+              : "border-gray-200 bg-white text-gray-700 hover:border-[#182C2A]/40",
           )}
         >
           {opt}
@@ -156,7 +156,7 @@ function Money({
 }) {
   return (
     <div className="space-y-1.5">
-      <Label htmlFor={id} className="text-sm font-medium text-[#002868]">
+      <Label htmlFor={id} className="text-sm font-medium text-[#182C2A]">
         {label}
       </Label>
       <div className="relative">
@@ -243,8 +243,8 @@ function DrawerBody({ onClose }: { onClose: () => void }) {
       <div className="border-b border-gray-100 p-5">
         <div className="mb-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="h-5 w-5 text-[#BF0A30]" />
-            <span className="text-sm font-semibold text-[#002868]">Secure Prequalification</span>
+            <ShieldCheck className="h-5 w-5 text-[#28564A]" />
+            <span className="text-sm font-semibold text-[#182C2A]">Secure Prequalification</span>
           </div>
           <button
             onClick={onClose}
@@ -268,7 +268,7 @@ function DrawerBody({ onClose }: { onClose: () => void }) {
         {errors.length > 0 && (
           <div
             role="alert"
-            className="mb-4 rounded-xl border border-[#BF0A30]/30 bg-[#BF0A30]/5 p-3 text-sm text-[#8B0000]"
+            className="mb-4 rounded-xl border border-[#28564A]/30 bg-[#28564A]/5 p-3 text-sm text-[#1F483F]"
           >
             <ul className="list-inside list-disc space-y-0.5">
               {errors.map((e) => (
@@ -280,16 +280,16 @@ function DrawerBody({ onClose }: { onClose: () => void }) {
 
         {step === 0 && (
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-[#002868]">What is your primary goal?</h3>
+            <h3 className="text-lg font-bold text-[#182C2A]">What is your primary goal?</h3>
             <ChoiceGrid options={goals} value={form.goal} onChange={(v) => set("goal", v)} />
           </div>
         )}
 
         {step === 1 && (
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-[#002868]">Tell us about the property</h3>
+            <h3 className="text-lg font-bold text-[#182C2A]">Tell us about the property</h3>
             <div className="space-y-1.5">
-              <Label htmlFor="address" className="text-sm font-medium text-[#002868]">
+              <Label htmlFor="address" className="text-sm font-medium text-[#182C2A]">
                 Property address
               </Label>
               <Input
@@ -300,11 +300,11 @@ function DrawerBody({ onClose }: { onClose: () => void }) {
               />
             </div>
             <div>
-              <Label className="mb-2 block text-sm font-medium text-[#002868]">Property type</Label>
+              <Label className="mb-2 block text-sm font-medium text-[#182C2A]">Property type</Label>
               <ChoiceGrid options={propertyTypes} value={form.propertyType} onChange={(v) => set("propertyType", v)} columns={3} />
             </div>
             <div>
-              <Label className="mb-2 block text-sm font-medium text-[#002868]">Occupancy</Label>
+              <Label className="mb-2 block text-sm font-medium text-[#182C2A]">Occupancy</Label>
               <ChoiceGrid options={occupancy} value={form.occupancy} onChange={(v) => set("occupancy", v)} columns={3} />
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -317,28 +317,28 @@ function DrawerBody({ onClose }: { onClose: () => void }) {
 
         {step === 2 && (
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-[#002868]">Your financing request</h3>
+            <h3 className="text-lg font-bold text-[#182C2A]">Your financing request</h3>
             <div className="grid gap-3 sm:grid-cols-2">
               <Money id="cash" label="Desired cash amount" value={form.cashAmount} onChange={(v) => set("cashAmount", v)} placeholder="100,000" />
               <div className="space-y-1.5">
-                <Label className="text-sm font-medium text-[#002868]">Preferred loan term</Label>
+                <Label className="text-sm font-medium text-[#182C2A]">Preferred loan term</Label>
                 <ChoiceGrid options={["10 yr", "15 yr", "20 yr", "30 yr"]} value={form.term} onChange={(v) => set("term", v)} columns={2} />
               </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="space-y-1.5">
-                <Label htmlFor="crate" className="text-sm font-medium text-[#002868]">
+                <Label htmlFor="crate" className="text-sm font-medium text-[#182C2A]">
                   Current mortgage rate (%)
                 </Label>
                 <Input id="crate" inputMode="decimal" placeholder="e.g. 4.25" value={form.currentRate} onChange={(e) => set("currentRate", e.target.value)} />
               </div>
               <div className="space-y-1.5">
-                <Label className="text-sm font-medium text-[#002868]">Desired timeline</Label>
+                <Label className="text-sm font-medium text-[#182C2A]">Desired timeline</Label>
                 <ChoiceGrid options={timelines} value={form.timeline} onChange={(v) => set("timeline", v)} columns={1} />
               </div>
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="tip" className="text-sm font-medium text-[#002868]">
+              <Label htmlFor="tip" className="text-sm font-medium text-[#182C2A]">
                 Expected time remaining in property
               </Label>
               <Input id="tip" placeholder="e.g. 7 years" value={form.timeInProperty} onChange={(e) => set("timeInProperty", e.target.value)} />
@@ -348,31 +348,31 @@ function DrawerBody({ onClose }: { onClose: () => void }) {
 
         {step === 3 && (
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-[#002868]">About you</h3>
+            <h3 className="text-lg font-bold text-[#182C2A]">About you</h3>
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="space-y-1.5">
-                <Label htmlFor="fn" className="text-sm font-medium text-[#002868]">First name</Label>
+                <Label htmlFor="fn" className="text-sm font-medium text-[#182C2A]">First name</Label>
                 <Input id="fn" autoComplete="given-name" value={form.firstName} onChange={(e) => set("firstName", e.target.value)} />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="ln" className="text-sm font-medium text-[#002868]">Last name</Label>
+                <Label htmlFor="ln" className="text-sm font-medium text-[#182C2A]">Last name</Label>
                 <Input id="ln" autoComplete="family-name" value={form.lastName} onChange={(e) => set("lastName", e.target.value)} />
               </div>
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="em" className="text-sm font-medium text-[#002868]">Email</Label>
+              <Label htmlFor="em" className="text-sm font-medium text-[#182C2A]">Email</Label>
               <Input id="em" type="email" inputMode="email" autoComplete="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="ph" className="text-sm font-medium text-[#002868]">Phone</Label>
+              <Label htmlFor="ph" className="text-sm font-medium text-[#182C2A]">Phone</Label>
               <Input id="ph" type="tel" inputMode="tel" autoComplete="tel" placeholder="(555) 555-5555" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
             </div>
             <div>
-              <Label className="mb-2 block text-sm font-medium text-[#002868]">Estimated credit range</Label>
+              <Label className="mb-2 block text-sm font-medium text-[#182C2A]">Estimated credit range</Label>
               <ChoiceGrid options={creditRanges} value={form.credit} onChange={(v) => set("credit", v)} columns={1} />
             </div>
             <div>
-              <Label className="mb-2 block text-sm font-medium text-[#002868]">Employment type</Label>
+              <Label className="mb-2 block text-sm font-medium text-[#182C2A]">Employment type</Label>
               <ChoiceGrid options={employmentTypes} value={form.employment} onChange={(v) => set("employment", v)} columns={2} />
             </div>
             <Money id="inc" label="Estimated annual household income" value={form.income} onChange={(v) => set("income", v)} placeholder="150,000" />
@@ -381,13 +381,13 @@ function DrawerBody({ onClose }: { onClose: () => void }) {
 
         {step === 4 && (
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-[#002868]">Consent</h3>
+            <h3 className="text-lg font-bold text-[#182C2A]">Consent</h3>
             <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-gray-200 p-3">
               <Checkbox checked={form.agreeTerms} onCheckedChange={(c) => set("agreeTerms", c === true)} className="mt-0.5" />
               <span className="text-sm text-gray-700">
                 I agree to the{" "}
-                <a href="/terms" className="font-medium text-[#BF0A30] underline">Terms</a> and{" "}
-                <a href="/privacy" className="font-medium text-[#BF0A30] underline">Privacy Policy</a>.
+                <a href="/terms" className="font-medium text-[#28564A] underline">Terms</a> and{" "}
+                <a href="/privacy" className="font-medium text-[#28564A] underline">Privacy Policy</a>.
               </span>
             </label>
             <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-gray-200 p-3">
@@ -425,7 +425,7 @@ function DrawerBody({ onClose }: { onClose: () => void }) {
         <Button
           onClick={next}
           disabled={submitting}
-          className="ml-auto rounded-full bg-[#BF0A30] px-6 font-semibold text-white hover:bg-[#8B0000]"
+          className="ml-auto rounded-full bg-[#28564A] px-6 font-semibold text-white hover:bg-[#1F483F]"
         >
           {submitting ? (
             <>
@@ -457,7 +457,7 @@ function SuccessScreen({ onClose, email }: { onClose: () => void; email: string 
       >
         <Check className="h-8 w-8 text-white" strokeWidth={3} />
       </motion.div>
-      <h3 className="mb-2 text-2xl font-bold text-[#002868]">Your Request Has Been Received</h3>
+      <h3 className="mb-2 text-2xl font-bold text-[#182C2A]">Your Request Has Been Received</h3>
       <p className="mb-6 max-w-sm text-sm text-gray-600">
         A financing specialist may contact you to review the information provided, clarify your
         objectives, and discuss potential next steps.
@@ -465,11 +465,11 @@ function SuccessScreen({ onClose, email }: { onClose: () => void; email: string 
       <div className="mb-6 w-full max-w-xs space-y-2 rounded-2xl border border-gray-200 bg-gray-50 p-4 text-left text-sm">
         <div className="flex justify-between">
           <span className="text-gray-500">Reference</span>
-          <span className="font-semibold text-[#002868]">{ref}</span>
+          <span className="font-semibold text-[#182C2A]">{ref}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-gray-500">Contact method</span>
-          <span className="font-medium text-[#002868]">{email || "Email"}</span>
+          <span className="font-medium text-[#182C2A]">{email || "Email"}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-gray-500">Documents</span>
@@ -477,7 +477,7 @@ function SuccessScreen({ onClose, email }: { onClose: () => void; email: string 
         </div>
       </div>
       <div className="flex w-full max-w-xs flex-col gap-2">
-        <Button asChild className="rounded-full bg-[#002868] font-semibold text-white hover:bg-[#001b4d]">
+        <Button asChild className="rounded-full bg-[#182C2A] font-semibold text-white hover:bg-[#001b4d]">
           <a href="#schedule">
             <CalendarClock className="mr-2 h-4 w-4" /> Schedule a Call
           </a>
@@ -526,7 +526,7 @@ export function PrequalProvider({ children }: { children: ReactNode }) {
               exit={reduced ? { opacity: 0 } : { x: "100%" }}
               transition={{ type: "tween", duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="h-1 w-full shrink-0 bg-gradient-to-r from-[#BF0A30] via-white to-[#002868]" />
+              <div className="h-1 w-full shrink-0 bg-gradient-to-r from-[#28564A] via-white to-[#182C2A]" />
               <div className="min-h-0 flex-1">
                 <DrawerBody onClose={close} />
               </div>

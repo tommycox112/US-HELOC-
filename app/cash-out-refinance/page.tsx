@@ -200,18 +200,18 @@ export default function CashOutRefinancePage() {
         <Header />
         <main className="flex-1">
           {/* ================= HERO ================= */}
-          <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/60 via-white to-white pt-14 pb-20">
+          <section className="relative overflow-hidden bg-gradient-to-b from-[#EEF2ED] via-white to-white pt-14 pb-20">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_80%_0%,rgba(0,40,104,0.08),transparent)]" />
             <div className="container relative z-10">
               <div className="grid items-start gap-12 lg:grid-cols-2">
                 <div className="pt-4">
                   <Reveal>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-[#BF0A30]/20 bg-[#BF0A30]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#BF0A30]">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-[#28564A]/20 bg-[#28564A]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#28564A]">
                       Cash-Out Refinancing
                     </span>
                   </Reveal>
                   <Reveal delay={0.05}>
-                    <h1 className="mt-5 text-balance text-4xl font-bold tracking-tight text-[#002868] md:text-5xl lg:text-6xl">
+                    <h1 className="mt-5 text-balance text-4xl font-bold tracking-tight text-[#182C2A] md:text-5xl lg:text-6xl">
                       Turn Available Home Equity Into a New Mortgage Strategy
                     </h1>
                   </Reveal>
@@ -247,7 +247,7 @@ export default function CashOutRefinancePage() {
                         { icon: HandCoins, t: "Guidance to closing" },
                       ].map((x) => (
                         <div key={x.t} className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white p-3">
-                          <x.icon className="h-5 w-5 shrink-0 text-[#002868]" />
+                          <x.icon className="h-5 w-5 shrink-0 text-[#182C2A]" />
                           <span className="text-xs font-medium text-gray-600">{x.t}</span>
                         </div>
                       ))}
@@ -265,10 +265,10 @@ export default function CashOutRefinancePage() {
           {/* ================= TRUST STRIP ================= */}
           <section className="border-y border-gray-100 bg-white py-5">
             <div className="container flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-gray-500">
-              <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-[#002868]" /> Secure application experience</span>
-              <span className="flex items-center gap-2"><ScrollText className="h-4 w-4 text-[#002868]" /> Transparent estimates</span>
-              <span className="flex items-center gap-2"><BadgeCheck className="h-4 w-4 text-[#002868]" /> No obligation to proceed</span>
-              {nmls && <span className="flex items-center gap-2"><FileCheck2 className="h-4 w-4 text-[#002868]" /> NMLS #{nmls}</span>}
+              <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-[#182C2A]" /> Secure application experience</span>
+              <span className="flex items-center gap-2"><ScrollText className="h-4 w-4 text-[#182C2A]" /> Transparent estimates</span>
+              <span className="flex items-center gap-2"><BadgeCheck className="h-4 w-4 text-[#182C2A]" /> No obligation to proceed</span>
+              {nmls && <span className="flex items-center gap-2"><FileCheck2 className="h-4 w-4 text-[#182C2A]" /> NMLS #{nmls}</span>}
               {eho && <span>Equal Housing Opportunity</span>}
               {rating && <span>{rating} {show(siteConfig.trust.reviewSource)}</span>}
             </div>
@@ -278,7 +278,7 @@ export default function CashOutRefinancePage() {
           <section className="py-20">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   One Transaction, Two Financial Changes
                 </h2>
                 <p className="mt-4 text-pretty text-gray-600">
@@ -294,10 +294,10 @@ export default function CashOutRefinancePage() {
                   {flowSteps.map((s, i) => (
                     <Reveal key={s} delay={i * 0.05}>
                       <div className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-4">
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#002868] text-sm font-bold text-white">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#182C2A] text-sm font-bold text-white">
                           {i + 1}
                         </div>
-                        <span className="font-medium text-[#002868]">{s}</span>
+                        <span className="font-medium text-[#182C2A]">{s}</span>
                       </div>
                       {i < flowSteps.length - 1 && (
                         <div className="flex justify-center py-1">
@@ -313,7 +313,7 @@ export default function CashOutRefinancePage() {
                   <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
                     <div className="relative h-40 w-full">
                       <Image src="/cash-out/american-home.png" alt="Classic American home" fill className="object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#002868]/70 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#182C2A]/70 to-transparent" />
                       <p className="absolute bottom-3 left-4 text-sm font-semibold text-white">Illustrative example</p>
                     </div>
                     <div className="space-y-2.5 p-6 text-sm">
@@ -327,7 +327,7 @@ export default function CashOutRefinancePage() {
                       ].map(([l, v]) => (
                         <div key={l} className="flex items-center justify-between border-b border-dashed border-gray-100 pb-2">
                           <span className="text-gray-500">{l}</span>
-                          <span className="font-semibold text-[#002868]">{v}</span>
+                          <span className="font-semibold text-[#182C2A]">{v}</span>
                         </div>
                       ))}
                       <p className="pt-2 text-xs text-gray-400">{disclosures.illustrative}</p>
@@ -342,14 +342,14 @@ export default function CashOutRefinancePage() {
           <section className="bg-gray-50/70 py-20">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   Potential Benefits and Important Tradeoffs
                 </h2>
               </Reveal>
               <div className="mt-12 grid gap-6 lg:grid-cols-2">
                 <Reveal>
                   <div className="h-full rounded-3xl border border-green-200 bg-white p-7">
-                    <h3 className="mb-4 text-lg font-bold text-[#002868]">Potential Benefits</h3>
+                    <h3 className="mb-4 text-lg font-bold text-[#182C2A]">Potential Benefits</h3>
                     <ul className="space-y-3">
                       {benefits.map((b) => (
                         <li key={b} className="flex items-start gap-3 text-sm text-gray-700">
@@ -361,7 +361,7 @@ export default function CashOutRefinancePage() {
                 </Reveal>
                 <Reveal delay={0.08}>
                   <div className="h-full rounded-3xl border border-amber-200 bg-white p-7">
-                    <h3 className="mb-4 text-lg font-bold text-[#002868]">Important Tradeoffs</h3>
+                    <h3 className="mb-4 text-lg font-bold text-[#182C2A]">Important Tradeoffs</h3>
                     <ul className="space-y-3">
                       {tradeoffs.map((t) => (
                         <li key={t} className="flex items-start gap-3 text-sm text-gray-700">
@@ -373,7 +373,7 @@ export default function CashOutRefinancePage() {
                 </Reveal>
               </div>
               <Reveal delay={0.1}>
-                <div className="mx-auto mt-6 max-w-3xl rounded-2xl border border-[#002868]/15 bg-blue-50/60 p-5 text-center text-sm text-[#002868]">
+                <div className="mx-auto mt-6 max-w-3xl rounded-2xl border border-[#182C2A]/15 bg-[#EEF2ED]/70 p-5 text-center text-sm text-[#182C2A]">
                   A cash-out refinance may not be the best option when the existing mortgage has a
                   substantially lower rate. Compare total cost, monthly payment, closing costs, and
                   break-even timing before proceeding.
@@ -386,7 +386,7 @@ export default function CashOutRefinancePage() {
           <section id="compare" className="py-20">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   Cash-Out Refinance or HELOC?
                 </h2>
                 <p className="mt-4 text-gray-600">Compare the two structures against your priorities.</p>
@@ -401,7 +401,7 @@ export default function CashOutRefinancePage() {
           <section id="calculator" className="scroll-mt-24 bg-gray-50/70 py-20">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   Estimate Your Potential Cash-Out Proceeds
                 </h2>
                 <p className="mt-4 text-gray-600">
@@ -418,7 +418,7 @@ export default function CashOutRefinancePage() {
           <section className="py-20">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   How Homeowners Commonly Use Cash-Out Proceeds
                 </h2>
               </Reveal>
@@ -426,10 +426,10 @@ export default function CashOutRefinancePage() {
                 {uses.map((u, i) => (
                   <Reveal key={u.title} delay={(i % 4) * 0.05}>
                     <div className="h-full rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-lg">
-                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#002868]/5 text-[#002868]">
+                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#182C2A]/5 text-[#182C2A]">
                         <u.icon className="h-5 w-5" />
                       </div>
-                      <h3 className="mb-2 font-semibold text-[#002868]">{u.title}</h3>
+                      <h3 className="mb-2 font-semibold text-[#182C2A]">{u.title}</h3>
                       <p className="text-xs leading-relaxed text-gray-500">{u.note}</p>
                     </div>
                   </Reveal>
@@ -442,7 +442,7 @@ export default function CashOutRefinancePage() {
           <section className="bg-gray-50/70 py-20">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   What Mortgage Providers Commonly Review
                 </h2>
                 <p className="mt-4 text-gray-600">
@@ -454,8 +454,8 @@ export default function CashOutRefinancePage() {
                   {qualification.map((q, i) => (
                     <Reveal key={q.title} delay={(i % 2) * 0.05}>
                       <div className="flex h-full items-center gap-3 rounded-2xl border border-gray-200 bg-white p-4">
-                        <q.icon className="h-5 w-5 shrink-0 text-[#BF0A30]" />
-                        <span className="text-sm font-medium text-[#002868]">{q.title}</span>
+                        <q.icon className="h-5 w-5 shrink-0 text-[#28564A]" />
+                        <span className="text-sm font-medium text-[#182C2A]">{q.title}</span>
                       </div>
                     </Reveal>
                   ))}
@@ -471,7 +471,7 @@ export default function CashOutRefinancePage() {
           <section className="py-20">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   Documents You May Be Asked to Provide
                 </h2>
               </Reveal>
@@ -479,7 +479,7 @@ export default function CashOutRefinancePage() {
                 {documents.map((d, i) => (
                   <Reveal key={d} delay={(i % 2) * 0.04}>
                     <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-3.5 text-sm text-gray-700">
-                      <FileCheck2 className="h-4 w-4 shrink-0 text-[#002868]" /> {d}
+                      <FileCheck2 className="h-4 w-4 shrink-0 text-[#182C2A]" /> {d}
                     </div>
                   </Reveal>
                 ))}
@@ -491,7 +491,7 @@ export default function CashOutRefinancePage() {
           </section>
 
           {/* ================= TIMELINE ================= */}
-          <section className="bg-[#002868] py-20 text-white">
+          <section className="bg-[#182C2A] py-20 text-white">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
                 <h2 className="text-balance text-3xl font-bold md:text-4xl">What the Process May Look Like</h2>
@@ -501,7 +501,7 @@ export default function CashOutRefinancePage() {
                   <Reveal key={t.step} delay={i * 0.05}>
                     <div className="flex gap-5 pb-8 last:pb-0">
                       <div className="flex flex-col items-center">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#BF0A30] text-sm font-bold">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#28564A] text-sm font-bold">
                           {i + 1}
                         </div>
                         {i < timeline.length - 1 && <div className="mt-1 w-px flex-1 bg-white/20" />}
@@ -525,7 +525,7 @@ export default function CashOutRefinancePage() {
           <section className="py-20">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   See How the Structure Changes
                 </h2>
                 <p className="mt-4 text-gray-600">Switch priorities to see how the emphasis shifts.</p>
@@ -540,7 +540,7 @@ export default function CashOutRefinancePage() {
           <section className="bg-gray-50/70 py-20">
             <div className="container">
               <Reveal className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   Designed for a Clearer Borrowing Experience
                 </h2>
               </Reveal>
@@ -548,7 +548,7 @@ export default function CashOutRefinancePage() {
                 {caseStudies.map((c, i) => (
                   <Reveal key={c.title} delay={i * 0.06}>
                     <div className="flex h-full flex-col rounded-3xl border border-gray-200 bg-white p-6">
-                      <h3 className="mb-4 text-lg font-bold text-[#002868]">{c.title}</h3>
+                      <h3 className="mb-4 text-lg font-bold text-[#182C2A]">{c.title}</h3>
                       <dl className="flex-1 space-y-3 text-sm">
                         <div><dt className="text-xs font-bold uppercase tracking-wider text-gray-400">Goal</dt><dd className="text-gray-700">{c.goal}</dd></div>
                         <div><dt className="text-xs font-bold uppercase tracking-wider text-gray-400">Structure reviewed</dt><dd className="text-gray-700">{c.structure}</dd></div>
@@ -599,7 +599,7 @@ export default function CashOutRefinancePage() {
           <section id="faq" className="py-20">
             <div className="container">
               <Reveal className="mx-auto mb-10 max-w-2xl text-center">
-                <h2 className="text-balance text-3xl font-bold text-[#002868] md:text-4xl">
+                <h2 className="text-balance text-3xl font-bold text-[#182C2A] md:text-4xl">
                   Cash-Out Refinance Questions
                 </h2>
               </Reveal>
@@ -607,7 +607,7 @@ export default function CashOutRefinancePage() {
                 <Accordion type="single" collapsible className="w-full">
                   {faqs.map((f, i) => (
                     <AccordionItem key={f.q} value={`item-${i}`} className="mb-2 rounded-2xl border border-gray-200 bg-white px-5">
-                      <AccordionTrigger className="py-5 text-left font-medium text-[#002868] hover:text-[#BF0A30]">
+                      <AccordionTrigger className="py-5 text-left font-medium text-[#182C2A] hover:text-[#28564A]">
                         {f.q}
                       </AccordionTrigger>
                       <AccordionContent className="pb-5 text-gray-600">{f.a}</AccordionContent>
@@ -622,7 +622,7 @@ export default function CashOutRefinancePage() {
           <section id="schedule" className="scroll-mt-24 py-20">
             <div className="container">
               <Reveal>
-                <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#002868] to-[#0a1730] px-6 py-16 text-center text-white md:px-16">
+                <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#182C2A] to-[#0a1730] px-6 py-16 text-center text-white md:px-16">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_50%_0%,rgba(191,10,48,0.25),transparent)]" />
                   <div className="relative z-10 mx-auto max-w-2xl">
                     <h2 className="text-balance text-3xl font-bold md:text-4xl">
@@ -633,7 +633,7 @@ export default function CashOutRefinancePage() {
                       review potential next steps.
                     </p>
                     <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                      <PrequalButton label="Check My Options" source="final-cta" variant="white" />
+                      <PrequalButton label="Explore My Options" source="final-cta" variant="white" />
                       <ScheduleButton />
                     </div>
                     <p className="mt-5 text-xs text-white/50">{disclosures.noObligation}</p>

@@ -85,7 +85,7 @@ export default function AboutPage() {
         <Header />
         <main className="flex-1">
           {/* ============================= HERO ============================= */}
-          <section className="relative overflow-hidden bg-[#002868] text-white">
+          <section className="relative overflow-hidden bg-[#182C2A] text-white">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -94,7 +94,7 @@ export default function AboutPage() {
                   "repeating-linear-gradient(90deg, #fff 0, #fff 2px, transparent 2px, transparent 64px)",
               }}
             />
-            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#bf0a30] via-white to-[#bf0a30]" />
+            <div className="absolute inset-x-0 top-0 h-1 bg-[#28564A]" />
             <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
               <Reveal>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/80">
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 </span>
               </Reveal>
               <Reveal delay={0.08}>
-                <h1 className="mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
+                <h1 className="mt-6 max-w-3xl text-balance font-serif text-5xl font-normal leading-[1.05] sm:text-6xl md:text-7xl">
                   Helping American homeowners put the equity they earned to work
                 </h1>
               </Reveal>
@@ -115,7 +115,7 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.24}>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <PrequalButton label="Check My Options" className="bg-[#bf0a30] hover:bg-[#a00825]" />
+                  <PrequalButton label="Explore My Options" className="bg-[#28564A] hover:bg-[#1F483F]" />
                   <SpecialistButton
                     label="Talk to a Specialist"
                     className="border-white/30 bg-white/5 text-white hover:bg-white/10"
@@ -130,10 +130,10 @@ export default function AboutPage() {
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <Reveal>
                 <div>
-                  <span className="text-sm font-bold uppercase tracking-wide text-[#bf0a30]">
+                  <span className="text-sm font-bold uppercase tracking-wide text-[#28564A]">
                     Who we are
                   </span>
-                  <h2 className="mt-3 text-balance text-3xl font-bold text-[#002868] sm:text-4xl">
+                  <h2 className="mt-3 text-balance text-3xl font-bold text-[#182C2A] sm:text-4xl">
                     A clearer way to explore home-equity financing
                   </h2>
                   <p className="mt-5 leading-relaxed text-gray-600">
@@ -148,8 +148,8 @@ export default function AboutPage() {
 
               <Reveal delay={0.1}>
                 <div className="rounded-3xl border border-gray-200 bg-gray-50/60 p-6 shadow-sm sm:p-8">
-                  <h3 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-[#002868]">
-                    <Building2 className="h-4 w-4 text-[#bf0a30]" /> Company snapshot
+                  <h3 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-[#182C2A]">
+                    <Building2 className="h-4 w-4 text-[#28564A]" /> Company snapshot
                   </h3>
                   <dl className="mt-5 space-y-4 text-sm">
                     {legalEntity ? (
@@ -179,7 +179,7 @@ export default function AboutPage() {
                             href={show(siteConfig.licensing.nmlsConsumerAccessUrl) ?? "#"}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[#002868] underline underline-offset-2"
+                            className="text-[#182C2A] underline underline-offset-2"
                           >
                             NMLS Consumer Access
                           </a>
@@ -188,7 +188,7 @@ export default function AboutPage() {
                     ) : null}
                     {show(siteConfig.licensing.equalHousingOpportunity) ? (
                       <div className="flex items-center gap-2 pt-1 text-gray-800">
-                        <Scale className="h-4 w-4 text-[#002868]" />
+                        <Scale className="h-4 w-4 text-[#182C2A]" />
                         <span className="font-medium">Equal Housing Opportunity</span>
                       </div>
                     ) : null}
@@ -203,10 +203,10 @@ export default function AboutPage() {
             <div className="mx-auto max-w-6xl px-4">
               <Reveal>
                 <div className="mx-auto max-w-3xl text-center">
-                  <span className="text-sm font-bold uppercase tracking-wide text-[#bf0a30]">
+                  <span className="text-sm font-bold uppercase tracking-wide text-[#28564A]">
                     Our story
                   </span>
-                  <h2 className="mt-3 text-balance text-3xl font-bold text-[#002868] sm:text-4xl">
+                  <h2 className="mt-3 text-balance text-3xl font-bold text-[#182C2A] sm:text-4xl">
                     Owning a home is the American dream. Using it shouldn&apos;t be a nightmare.
                   </h2>
                 </div>
@@ -240,7 +240,7 @@ export default function AboutPage() {
                   </p>
                 </Reveal>
                 <Reveal delay={0.2}>
-                  <p className="font-medium text-[#002868]">
+                  <p className="font-medium text-[#182C2A]">
                     We&apos;re proud to serve homeowners from coast to coast, and even prouder of the
                     reason we do it: the value you&apos;ve built belongs to you, and putting it to work
                     should feel empowering — not exhausting.
@@ -258,10 +258,10 @@ export default function AboutPage() {
           <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
-                <span className="text-sm font-bold uppercase tracking-wide text-[#bf0a30]">
+                <span className="text-sm font-bold uppercase tracking-wide text-[#28564A]">
                   Leadership
                 </span>
-                <h2 className="mt-3 text-balance text-3xl font-bold text-[#002868] sm:text-4xl">
+                <h2 className="mt-3 text-balance text-3xl font-bold text-[#182C2A] sm:text-4xl">
                   The people behind the mission
                 </h2>
                 <p className="mt-4 leading-relaxed text-gray-600">
@@ -281,10 +281,10 @@ export default function AboutPage() {
             <div className="mx-auto max-w-6xl px-4">
               <Reveal>
                 <div className="mx-auto max-w-2xl text-center">
-                  <span className="text-sm font-bold uppercase tracking-wide text-[#bf0a30]">
+                  <span className="text-sm font-bold uppercase tracking-wide text-[#28564A]">
                     What we stand for
                   </span>
-                  <h2 className="mt-3 text-balance text-3xl font-bold text-[#002868] sm:text-4xl">
+                  <h2 className="mt-3 text-balance text-3xl font-bold text-[#182C2A] sm:text-4xl">
                     Values that guide every conversation
                   </h2>
                 </div>
@@ -293,10 +293,10 @@ export default function AboutPage() {
                 {values.map((val, i) => (
                   <Reveal key={val.title} delay={i * 0.08}>
                     <div className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#002868]/5">
-                        <val.icon className="h-6 w-6 text-[#002868]" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#182C2A]/5">
+                        <val.icon className="h-6 w-6 text-[#182C2A]" />
                       </div>
-                      <h3 className="mt-4 text-lg font-bold text-[#002868]">{val.title}</h3>
+                      <h3 className="mt-4 text-lg font-bold text-[#182C2A]">{val.title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-gray-600">{val.body}</p>
                     </div>
                   </Reveal>
@@ -305,17 +305,16 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* ===================== PROMISE BAND (patriotic) ================= */}
-          <section className="relative bg-[#002868] py-5 text-white">
-            <div className="absolute inset-x-0 top-0 h-1 bg-[#bf0a30]" />
-            <div className="absolute inset-x-0 bottom-0 h-1 bg-white/80" />
+          {/* ===================== PROMISE BAND ================= */}
+          <section className="relative bg-[#182C2A] py-5 text-white">
+            <div className="absolute inset-x-0 top-0 h-1 bg-[#28564A]" />
             <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-3 px-4 text-center text-sm font-semibold sm:flex-row sm:gap-10">
               <span className="flex items-center gap-2">
                 <HeartHandshake className="h-4 w-4 text-white" /> Homeowner focused
               </span>
               <span className="hidden h-4 w-px bg-white/20 sm:block" />
               <span className="flex items-center gap-2">
-                <Landmark className="h-4 w-4 text-white" /> Made in America
+                <Landmark className="h-4 w-4 text-white" /> Guidance from real people
               </span>
               <span className="hidden h-4 w-px bg-white/20 sm:block" />
               <span className="flex items-center gap-2">
@@ -328,10 +327,10 @@ export default function AboutPage() {
           <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
-                <span className="text-sm font-bold uppercase tracking-wide text-[#bf0a30]">
+                <span className="text-sm font-bold uppercase tracking-wide text-[#28564A]">
                   Where we operate
                 </span>
-                <h2 className="mt-3 text-balance text-3xl font-bold text-[#002868] sm:text-4xl">
+                <h2 className="mt-3 text-balance text-3xl font-bold text-[#182C2A] sm:text-4xl">
                   Serving homeowners across the country
                 </h2>
                 <p className="mt-4 leading-relaxed text-gray-600">
@@ -350,10 +349,10 @@ export default function AboutPage() {
             <div className="mx-auto max-w-6xl px-4">
               <Reveal>
                 <div className="mx-auto max-w-2xl text-center">
-                  <span className="text-sm font-bold uppercase tracking-wide text-[#bf0a30]">
+                  <span className="text-sm font-bold uppercase tracking-wide text-[#28564A]">
                     Trust &amp; transparency
                   </span>
-                  <h2 className="mt-3 text-balance text-3xl font-bold text-[#002868] sm:text-4xl">
+                  <h2 className="mt-3 text-balance text-3xl font-bold text-[#182C2A] sm:text-4xl">
                     Our commitments to you
                   </h2>
                 </div>
@@ -362,10 +361,10 @@ export default function AboutPage() {
                 {commitments.map((c, i) => (
                   <Reveal key={c.title} delay={i * 0.08}>
                     <div className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#bf0a30]/10">
-                        <c.icon className="h-6 w-6 text-[#bf0a30]" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#28564A]/10">
+                        <c.icon className="h-6 w-6 text-[#28564A]" />
                       </div>
-                      <h3 className="mt-4 text-lg font-bold text-[#002868]">{c.title}</h3>
+                      <h3 className="mt-4 text-lg font-bold text-[#182C2A]">{c.title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-gray-600">{c.body}</p>
                     </div>
                   </Reveal>
@@ -374,23 +373,23 @@ export default function AboutPage() {
 
               <Reveal delay={0.1}>
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-4 rounded-2xl border border-gray-200 bg-white p-6 text-sm">
-                  <span className="font-semibold text-[#002868]">Learn more:</span>
+                  <span className="font-semibold text-[#182C2A]">Learn more:</span>
                   <Link
                     href={show(siteConfig.licensing.licensingPageUrl) ?? "/licenses"}
-                    className="inline-flex items-center gap-1 font-medium text-[#002868] underline underline-offset-2 hover:text-[#bf0a30]"
+                    className="inline-flex items-center gap-1 font-medium text-[#182C2A] underline underline-offset-2 hover:text-[#28564A]"
                   >
                     <FileText className="h-4 w-4" /> Licensing
                   </Link>
                   <Link
                     href={show(siteConfig.licensing.disclosuresPageUrl) ?? "/disclosures"}
-                    className="inline-flex items-center gap-1 font-medium text-[#002868] underline underline-offset-2 hover:text-[#bf0a30]"
+                    className="inline-flex items-center gap-1 font-medium text-[#182C2A] underline underline-offset-2 hover:text-[#28564A]"
                   >
                     <ShieldCheck className="h-4 w-4" /> Disclosures
                   </Link>
                   {email ? (
                     <a
                       href={`mailto:${email}`}
-                      className="inline-flex items-center gap-1 font-medium text-[#002868] underline underline-offset-2 hover:text-[#bf0a30]"
+                      className="inline-flex items-center gap-1 font-medium text-[#182C2A] underline underline-offset-2 hover:text-[#28564A]"
                     >
                       <Mail className="h-4 w-4" /> {email}
                     </a>
@@ -401,7 +400,7 @@ export default function AboutPage() {
           </section>
 
           {/* ========================== CONTACT CTA ======================== */}
-          <section className="bg-[#002868] py-16 text-white sm:py-20">
+          <section className="bg-[#182C2A] py-16 text-white sm:py-20">
             <div className="mx-auto max-w-4xl px-4 text-center">
               <Reveal>
                 <h2 className="text-balance text-3xl font-bold sm:text-4xl">
@@ -414,7 +413,7 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.1}>
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
-                  <PrequalButton label="Check My Options" className="bg-[#bf0a30] hover:bg-[#a00825]" />
+                  <PrequalButton label="Explore My Options" className="bg-[#28564A] hover:bg-[#1F483F]" />
                   <SpecialistButton
                     label="Talk to a Specialist"
                     className="border-white/30 bg-white/5 text-white hover:bg-white/10"
