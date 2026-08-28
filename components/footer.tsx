@@ -48,55 +48,48 @@ export function Footer() {
   )
 
   return (
-    <footer className="relative overflow-hidden bg-[#002868] text-white">
-      {/* American flag stripe accent */}
-      <div className="flex h-1 w-full">
-        <div className="flex-1 bg-[#BF0A30]" />
-        <div className="flex-1 bg-white" />
-        <div className="flex-1 bg-[#002868]" />
-      </div>
-
+    <footer className="border-t border-[#DFE6E2] bg-[#F6F3EC] text-[#52616B]">
       <div className="container py-14">
         <div className="grid gap-10 pb-10 md:grid-cols-2 lg:grid-cols-3">
           {/* Brand + identity */}
           <div className="lg:col-span-1">
             <Link href="/" className="mb-4 inline-block">
-              <Logo className="h-9 w-auto" inverted />
+              <Logo className="h-9 w-auto" />
             </Link>
-            <p className="mb-5 max-w-md text-pretty text-sm leading-relaxed text-white/60">
+            <p className="mb-5 max-w-md text-pretty text-sm leading-relaxed text-[#52616B]">
               {siteConfig.brand.name} helps homeowners and real-estate investors explore
               home-equity financing options through a streamlined online process with human
               guidance.
             </p>
 
-            <div className="space-y-2 rounded-xl border border-white/10 bg-white/5 p-4 text-sm">
+            <div className="space-y-2 rounded-xl border border-[#DFE6E2] bg-white p-4 text-sm">
               {email && (
                 <a
                   href={`mailto:${email}`}
-                  className="flex items-center gap-3 text-white transition-colors hover:text-white/80"
+                  className="flex items-center gap-3 text-[#182C2A] transition-colors hover:text-[#28564A]"
                 >
-                  <Mail className="h-4 w-4 text-[#BF0A30]" />
+                  <Mail className="h-4 w-4 text-[#28564A]" />
                   <span>{email}</span>
                 </a>
               )}
               {phone && (
                 <a
                   href={`tel:${phone}`}
-                  className="flex items-center gap-3 text-white transition-colors hover:text-white/80"
+                  className="flex items-center gap-3 text-[#182C2A] transition-colors hover:text-[#28564A]"
                 >
-                  <Phone className="h-4 w-4 text-[#BF0A30]" />
+                  <Phone className="h-4 w-4 text-[#28564A]" />
                   <span>{phone}</span>
                 </a>
               )}
               {hours && (
-                <div className="flex items-center gap-3 text-white/70">
-                  <Clock className="h-4 w-4 text-[#BF0A30]" />
+                <div className="flex items-center gap-3 text-[#52616B]">
+                  <Clock className="h-4 w-4 text-[#28564A]" />
                   <span>{hours}</span>
                 </div>
               )}
               {office && (
-                <div className="flex items-center gap-3 text-white/70">
-                  <MapPin className="h-4 w-4 text-[#BF0A30]" />
+                <div className="flex items-center gap-3 text-[#52616B]">
+                  <MapPin className="h-4 w-4 text-[#28564A]" />
                   <span>{office}</span>
                 </div>
               )}
@@ -107,7 +100,7 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-2">
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
-                <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/80">
+                <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#182C2A]">
                   {category}
                 </h3>
                 <ul className="space-y-2">
@@ -115,7 +108,7 @@ export function Footer() {
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-sm text-white/50 underline-offset-4 transition-colors hover:text-white hover:underline"
+                        className="text-sm text-[#52616B] underline-offset-4 transition-colors hover:text-[#28564A] hover:underline"
                       >
                         {link.name}
                       </Link>
@@ -128,17 +121,17 @@ export function Footer() {
         </div>
 
         {/* Legal identity band */}
-        <div className="space-y-3 border-t border-white/10 pt-8 text-[11px] leading-relaxed text-white/45">
+        <div className="space-y-3 border-t border-[#DFE6E2] pt-8 text-[11px] leading-relaxed text-[#8A7C6A]">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             {legalEntity && (
               <span>
                 {siteConfig.brand.name} is a digital home-financing brand operated by{" "}
-                <span className="text-white/70">{legalEntity}</span>
+                <span className="text-[#182C2A]">{legalEntity}</span>
                 {dba ? `, ${dba.toLowerCase()}` : ""}.
               </span>
             )}
             {businessModel && (
-              <span className="text-white/60">Operating as a {businessModel}.</span>
+              <span className="text-[#52616B]">Operating as a {businessModel}.</span>
             )}
           </div>
 
@@ -154,7 +147,7 @@ export function Footer() {
                       href={nmlsAccess}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline underline-offset-2 hover:text-white/70"
+                      className="underline underline-offset-2 hover:text-[#28564A]"
                     >
                       NMLS Consumer Access
                     </a>
@@ -171,7 +164,7 @@ export function Footer() {
           <p className="max-w-4xl text-pretty">{disclosures.aboutGeneral}</p>
           <p className="max-w-4xl text-pretty">{disclosures.cashOutFooter}</p>
 
-          <p className="pt-2 text-white/40">
+          <p className="pt-2 text-[#8A7C6A]">
             &copy; {new Date().getFullYear()} {siteConfig.brand.name}. All rights reserved.
           </p>
         </div>
